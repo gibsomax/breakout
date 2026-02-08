@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+#Vertual environments
+venv/
+env/
+.venv/
+
+#pycharm stuff
+.idea/
+*.iml
+*.iws
+*.ipr
+
+#packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+#logs and databases
+*.log
+*.sqlite3
+
+#OS files
+.DS_Store
+Thumbs.db
