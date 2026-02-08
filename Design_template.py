@@ -2,7 +2,7 @@ import pygame
 
 pygame.init()
 
-SCREEN_WIDTH = 1860
+SCREEN_WIDTH = 1840
 SCREEN_HEIGHT = 1000
 
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
@@ -85,22 +85,30 @@ DARK_NEON_COLORS = [
 #list of colors for inner boxes
 inner_box_color = [(0, 110, 120),(160, 40, 120),(80, 40, 120),(0, 60, 120),(0, 100, 60),(140, 120, 0),(160, 90, 30),(140, 0, 120)]
 
-def brick(x,y):
-    brick_size_x = 30
-    brick_size_y = 15
+def brick(x,y,box_width, box_height):
+    brick_size_x = box_width * 0.068
+    brick_size_y = box_height * 0.064
+    spacing_x = brick_size_x * 0.16
+    spacing_y = brick_size_y * 0.16
 
     for j in range(5):
         for i in range(12):
             pygame.draw.rect(
             screen,
             (200, 200, 255),
-            (x + (brick_size_x + 5) * i, y + (brick_size_y + 5) * j, brick_size_x, brick_size_y),
-            border_radius = 2)
+            (x + (brick_size_x + spacing_x) * i, y + (brick_size_y + spacing_y) * j, brick_size_x, brick_size_y),
+            border_radius=int(brick_size_x*.1))
 
 
 def inner_box(box_x,box_y,color=(0,0,0)):
-    box_size_x = 438
-    box_size_y = 235
+    box_size_x = SCREEN_WIDTH * 0.235    # 23.5% of screen width
+    box_size_y = SCREEN_HEIGHT * 0.235   # 23.5% of screen height
+    spacing_x = box_size_x * 0.05  # 5% of box width
+    spacing_y = box_size_y * 0.05  # 5% of box height
+    border_radius_outer = int(box_size_x * 0.02)  # 2% of box width
+    border_radius_inner = int(box_size_x * 0.018)  # slightly smaller
+    offset_x = box_size_x * 0.007
+    offset_y = box_size_y * 0.01
 
     for j in range(2):
         for i in range(4):
@@ -108,18 +116,18 @@ def inner_box(box_x,box_y,color=(0,0,0)):
             pygame.draw.rect(
             screen,
             (200, 200, 255) ,
-            (box_x + (box_size_x + 20) * i, box_y + (box_size_y + 20) * j, box_size_x, box_size_y),
-             border_radius = 5)
+            (box_x + (box_size_x + spacing_x) * i, box_y + (box_size_y + spacing_y) * j, box_size_x, box_size_y),
+             border_radius = border_radius_outer)
 
             #draw box
             pygame.draw.rect(
             screen,
             color[j*4+i],
-            (box_x + ((box_size_x + 20) * i) +3, box_y + ((box_size_y + 20) * j) + 3, box_size_x-6, box_size_y-6),
-             border_radius = 4)
+            (box_x + ((box_size_x + spacing_x) * i) + offset_x, box_y + ((box_size_y + spacing_y) * j) + offset_y, box_size_x - 2 * offset_x, box_size_y - 2 * offset_y),
+             border_radius = border_radius_inner)
 
             #draw brick
-            brick(box_x + ((box_size_x + 20) * i) + 11, box_y + ((box_size_y + 20) * j) + 10)
+            brick(box_x + ((box_size_x + spacing_x) * i) + box_size_x*.025, box_y + ((box_size_y + spacing_y) * j) + box_size_y * 0.042,box_size_x,box_size_y)
 
 while running:
     for event in pygame.event.get():
