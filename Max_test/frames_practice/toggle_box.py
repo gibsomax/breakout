@@ -1,3 +1,5 @@
+#this code was writen with the help of AI tools and is intended as a practice and reference for the final project
+
 import pygame
 
 pygame.init()
@@ -11,9 +13,9 @@ pygame.display.set_caption("epilepsy simulator")
 box_x,box_y = 350,250
 box_size = 100
 color = (0,0,0)
-frame_count = 0
-
 running = True
+
+frame_count = 0
 vx = 2
 vy = 2
 
