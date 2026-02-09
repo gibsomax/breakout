@@ -99,6 +99,14 @@ def brick(x,y,box_width, box_height):
             (x + (brick_size_x + spacing_x) * i, y + (brick_size_y + spacing_y) * j, brick_size_x, brick_size_y),
             border_radius=int(brick_size_x*.1))
 
+def paddle(x, y, box_width, box_height):
+    paddle_size_x = box_width * 0.16
+    paddle_size_y = box_height * 0.064
+    pygame.draw.rect(
+        screen,
+        (200, 200, 255),
+        (x , y , paddle_size_x, paddle_size_y),
+        border_radius=int(paddle_size_x * .05))
 
 def inner_box(box_x,box_y,color=(0,0,0)):
     box_size_x = SCREEN_WIDTH * 0.235    # 23.5% of screen width
@@ -127,7 +135,12 @@ def inner_box(box_x,box_y,color=(0,0,0)):
              border_radius = border_radius_inner)
 
             #draw brick
-            brick(box_x + ((box_size_x + spacing_x) * i) + box_size_x*.025, box_y + ((box_size_y + spacing_y) * j) + box_size_y * 0.042,box_size_x,box_size_y)
+            brick(box_x + ((box_size_x + spacing_x) * i) + box_size_x*.03, box_y + ((box_size_y + spacing_y) * j) + box_size_y * 0.042,box_size_x,box_size_y)
+
+            #draw paddle
+            paddle((box_x + (box_size_x + spacing_x) * i) +box_size_x*.45 , (box_y + (box_size_y + spacing_y) * j) + box_size_y * .9, box_size_x, box_size_y)
+
+
 
 while running:
     for event in pygame.event.get():
@@ -136,7 +149,7 @@ while running:
 
     screen.fill((0, 0, 15))
     inner_box(25,25,inner_box_color)
-
+    paddle(SCREEN_WIDTH * .45, SCREEN_HEIGHT * .9, SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
     pygame.display.flip()
