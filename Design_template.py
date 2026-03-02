@@ -2,8 +2,8 @@ import pygame
 
 pygame.init()
 
-SCREEN_WIDTH = 1840
-SCREEN_HEIGHT = 1000
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 800
 
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 pygame.display.set_caption("Design Sample")
@@ -140,16 +140,31 @@ def inner_box(box_x,box_y,color=(0,0,0)):
             #draw paddle
             paddle((box_x + (box_size_x + spacing_x) * i) +box_size_x*.45 , (box_y + (box_size_y + spacing_y) * j) + box_size_y * .9, box_size_x, box_size_y)
 
-
+velocity = 10
+paddle_pos = (SCREEN_WIDTH * .45)
 
 while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+   for event in pygame.event.get():
+       if event.type == pygame.QUIT:
+           running = False
 
-    screen.fill((0, 0, 15))
-    inner_box(25,25,inner_box_color)
-    paddle(SCREEN_WIDTH * .45, SCREEN_HEIGHT * .9, SCREEN_WIDTH, SCREEN_HEIGHT)
+   screen.fill((0, 0, 15))
+   inner_box(25,25,inner_box_color)
+   keys = pygame.key.get_pressed()
 
+   if keys[pygame.K_LEFT] and paddle_pos > 0:
+       paddle_pos = paddle_pos - velocity
+       paddle(paddle_pos, SCREEN_HEIGHT * .9, SCREEN_WIDTH, SCREEN_HEIGHT)
+       pygame.display.update()
+   if keys[pygame.K_RIGHT] and paddle_pos < SCREEN_WIDTH - (SCREEN_WIDTH * 0.16):
+       paddle_pos = paddle_pos + velocity
+       paddle(paddle_pos, SCREEN_HEIGHT * .9, SCREEN_WIDTH, SCREEN_HEIGHT)
+       pygame.display.update()
+   else:
+       paddle(paddle_pos, SCREEN_HEIGHT * .9, SCREEN_WIDTH, SCREEN_HEIGHT)
+       pygame.display.update()
 
-    pygame.display.flip()
+   pygame.display.flip()
+
+   if keys[pygame.K_q]:
+       pygame.quit()
