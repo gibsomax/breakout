@@ -16,7 +16,7 @@ class BALL:
         self.ball_rect.center = (500,720)
         self.vx = random.choice([-2,2])
         self.vy = -2
-        self.start = False
+        self.destroy = False
 
     def update(self):
         self.ball_rect.x += self.vx
@@ -28,7 +28,7 @@ class BALL:
         if self.ball_rect.y < 1:
             self.vy = 2
         if self.ball_rect.bottom >= SCREEN_HEIGHT:
-            self.vy = -2
+            self.destroy = True
 
 
     def draw(self, surface):
