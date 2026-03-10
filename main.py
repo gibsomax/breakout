@@ -52,7 +52,7 @@ while running:
     ball.draw(screen)
 
     # screen flip
-    pygame.display.flip()
+    #pygame.display.flip()
 
     # FPS
     clock.tick(60)
