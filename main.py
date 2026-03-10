@@ -5,7 +5,7 @@ from settings import SCREEN_WIDTH, SCREEN_HEIGHT,ball_size
 from game_objects.ball import BALL
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-pygame.display.set_caption("Space Invaders")
+pygame.display.set_caption("Breakout")
 
 #define the clock
 clock = pygame.time.Clock()
