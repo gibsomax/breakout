@@ -19,7 +19,20 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
+    keys = pygame.key.get_pressed()
+    # restart
+    if keys[pygame.K_r]:
+        ball = BALL()
+    if keys[pygame.K_SPACE]:
+        ball.start = True
 
+
+
+    # clear screen
+    screen.fill((0, 0, 0))
+
+    if ball.start:
+        ball.update()
     ball.draw(screen)
 
     # screen flip
