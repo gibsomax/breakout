@@ -1,10 +1,10 @@
 #this is where the game loop will live
 import pygame
 import sys
-from settings import SCREEN_WIDTH, SCREEN_HEIGHT
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity
 from game_objects.ball import BALL
 from Design_template import paddle
-from settings import velocity
+
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Breakout")
