@@ -66,7 +66,7 @@ while running:
     ball_destroy.clear()
 
     # screen flip
-    pygame.display.flip()
+    #pygame.display.flip()
 
     # FPS
     clock.tick(60)
