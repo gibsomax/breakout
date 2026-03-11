@@ -2,16 +2,16 @@
 #it needs to be able to be moved left and right with the mouse and/or arrow keys.
 #it needs to have collision on the top and sides but allow a ball to pass through on the bottom.
 import pygame
-from settings import paddle_rad
+from settings import paddle_rad,SCREEN_WIDTH,SCREEN_HEIGHT
 
 class PADDLE:
-    def __init__(self, box_width, box_height):
-        self.paddle_size_x = box_width * 0.16
-        self.paddle_size_y = box_height * 0.064
+    def __init__(self):
+        self.paddle_size_x = SCREEN_WIDTH * 0.16
+        self.paddle_size_y = SCREEN_HEIGHT * 0.064
 
         self.paddle_rect = pygame.Rect(
-            box_width * 0.45,
-            box_height * 0.9,
+            SCREEN_WIDTH * 0.419,
+            SCREEN_HEIGHT * 0.9,
             self.paddle_size_x,
             self.paddle_size_y
         )
