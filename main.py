@@ -1,9 +1,9 @@
 #this is where the game loop will live
 import pygame
 import sys
-from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad
 from game_objects.ball import BALL
-from Design_template import paddle
+from game_objects.paddle import PADDLE
 
 
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -15,7 +15,7 @@ clock = pygame.time.Clock()
 ball = [BALL()]
 ball_destroy = []
 start = False
-paddle_pos = (SCREEN_WIDTH * .45)
+paddle = PADDLE(SCREEN_WIDTH,SCREEN_HEIGHT)
 
 
 running = True
@@ -38,21 +38,18 @@ while running:
         pygame.quit()
 
     # paddle movement
-    if keys[pygame.K_LEFT] and paddle_pos > 0:
-        paddle_pos = paddle_pos - velocity
-        paddle(paddle_pos, SCREEN_HEIGHT * .9, SCREEN_WIDTH, SCREEN_HEIGHT)
-        pygame.display.update()
-    if keys[pygame.K_RIGHT] and paddle_pos < SCREEN_WIDTH - (SCREEN_WIDTH * 0.16):
-        paddle_pos = paddle_pos + velocity
-        paddle(paddle_pos, SCREEN_HEIGHT * .9, SCREEN_WIDTH, SCREEN_HEIGHT)
-        pygame.display.update()
-    else:
-        paddle(paddle_pos, SCREEN_HEIGHT * .9, SCREEN_WIDTH, SCREEN_HEIGHT)
-        pygame.display.update()
+    if keys[pygame.K_LEFT] and paddle.paddle_rect.left >= 0+paddle_rad:
+        paddle.paddle_rect.x -= velocity
+    if keys[pygame.K_RIGHT] and paddle.paddle_rect.right <= SCREEN_WIDTH-paddle_rad:
+        paddle.paddle_rect.x += velocity
+
 
 
     # clear screen
     screen.fill((0, 0, 0))
+
+    #draw paddle
+    paddle.draw(screen)
 
     if start:
         for i in range(len(ball)):
@@ -66,7 +63,7 @@ while running:
     ball_destroy.clear()
 
     # screen flip
-    #pygame.display.flip()
+    pygame.display.flip()
 
     # FPS
     clock.tick(60)
