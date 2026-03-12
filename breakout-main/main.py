@@ -4,6 +4,7 @@ import sys
 from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed
 from game_objects.ball import BALL
 from game_objects.paddle import PADDLE
+from game_objects.brick import BRICK
 
 #create the screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
@@ -18,6 +19,20 @@ ball_destroy = []
 start = False
 paddle = PADDLE()
 
+#adding bricks
+def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
+    bricks = []
+    brick_w, brick_h = 70, 25
+    colors = [(220,50,50),(220, 130, 50),(220,220,50),(50,200,50),(50,100,220)]
+    for row in range(rows):
+        for col in range(cols):
+            x = offset_x + col * (brick_w + padding)
+            y = offset_y + row * (brick_h + padding)
+            bricks.append(BRICK(x, y, brick_w, brick_h, colors[row % len(colors)]))
+    return bricks
+
+bricks = create_bricks()
+
 #game loop
 running = True
 while running:
@@ -30,6 +45,7 @@ while running:
     # restart
     if keys[pygame.K_r]:
         ball = [BALL()]
+        bricks = create_bricks()
         start = False
     #starts the ball moving
     if keys[pygame.K_SPACE]:
@@ -59,13 +75,24 @@ while running:
             elif i.ball_rect.left <= paddle.paddle_rect.right + abs(i.vy):
                 i.vx = ball_speed
 
-
+    #ball/brick collision
+    for ball_obj in ball:
+        for brick in bricks:
+            if brick.alive and brick.rect.colliderect(ball_obj.ball_rect):
+                brick.hit()
+                ball_obj.vy *= -1
+                break
+    bricks = [b for b in bricks if b.alive]
 
     # clear screen
     screen.fill((0, 0, 0))
 
     #draw paddle
     paddle.draw(screen)
+
+    #draw bricks
+    for brick in bricks:
+        brick.draw(screen)
 
     #destroys balls when they hit the bottom of the screen
     if start:
