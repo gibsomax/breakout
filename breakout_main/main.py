@@ -46,6 +46,7 @@ while running:
     if keys[pygame.K_r]:
         ball = [BALL()]
         bricks = create_bricks()
+        paddle = PADDLE()
         start = False
     #starts the ball moving
     if keys[pygame.K_SPACE]:
