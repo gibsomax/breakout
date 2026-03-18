@@ -65,12 +65,12 @@ while running:
         paddle.paddle_rect.x += velocity
         if not start:
             ball[0].ball_rect.x += velocity
-
     #ball/paddle collision
     for i in ball:
         if paddle.paddle_rect.colliderect(i.ball_rect):
             if i.ball_rect.bottom <= paddle.paddle_rect.top + abs(i.vy):
                 i.vy = -ball_speed
+                i.vx = (i.ball_rect.x / 10 - paddle.paddle_rect.center[0] / 10)
             elif i.ball_rect.right <= paddle.paddle_rect.left + abs(i.vy):
                 i.vx = -ball_speed
             elif i.ball_rect.left <= paddle.paddle_rect.right + abs(i.vy):
@@ -112,7 +112,6 @@ while running:
 
     # FPS
     clock.tick(60)
-
 # ---after loop quit---
 pygame.quit()
 sys.exit()
