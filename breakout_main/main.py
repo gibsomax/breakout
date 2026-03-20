@@ -1,7 +1,7 @@
 #this is where the game loop will live
 import pygame
 import sys
-from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives
 from game_objects.ball import BALL
 from game_objects.paddle import PADDLE
 from game_objects.brick import BRICK
@@ -33,6 +33,8 @@ def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
 
 bricks = create_bricks()
 
+lives = default_lives
+
 #game loop
 running = True
 while running:
@@ -48,6 +50,7 @@ while running:
         bricks = create_bricks()
         paddle = PADDLE()
         start = False
+        lives = default_lives
     #starts the ball moving
     if keys[pygame.K_SPACE]:
         start = True
@@ -65,6 +68,7 @@ while running:
         paddle.paddle_rect.x += velocity
         if not start:
             ball[0].ball_rect.x += velocity
+
     #ball/paddle collision
     for i in ball:
         if paddle.paddle_rect.colliderect(i.ball_rect):
@@ -100,18 +104,26 @@ while running:
         for i in range(len(ball)):
             if ball[i].destroy:
                 ball_destroy.append(ball[i])
+                lives -= 1
+                start = False
+                paddle = PADDLE()
             ball[i].update()
     for i in range(len(ball)):
         ball[i].draw(screen)
     for i in ball_destroy:
         ball.remove(i)
+        ball = [BALL()]
     ball_destroy.clear()
+
+    if lives == 0:
+        quit()
 
     # screen flip
     pygame.display.flip()
 
     # FPS
     clock.tick(60)
+    print(lives)
 # ---after loop quit---
 pygame.quit()
 sys.exit()
