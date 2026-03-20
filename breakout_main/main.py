@@ -115,15 +115,20 @@ while running:
         ball = [BALL()]
     ball_destroy.clear()
 
+    #Loss condition
     if lives == 0:
+        print("Lose")
         quit()
 
+    #Win condition
+    if not bricks:
+        print("Win")
+        quit()
     # screen flip
     pygame.display.flip()
 
     # FPS
     clock.tick(60)
-    print(lives)
 # ---after loop quit---
 pygame.quit()
 sys.exit()
