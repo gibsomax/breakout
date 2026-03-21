@@ -1,7 +1,7 @@
 #this is where the game loop will live
 import pygame
 import sys
-from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives, font
 from game_objects.ball import BALL
 from game_objects.paddle import PADDLE
 from game_objects.brick import BRICK
@@ -52,7 +52,7 @@ while running:
         start = False
         lives = default_lives
     #starts the ball moving
-    if keys[pygame.K_SPACE]:
+    if keys[pygame.K_SPACE] and lives > 0:
         start = True
 
     # exit
@@ -117,13 +117,21 @@ while running:
 
     #Loss condition
     if lives == 0:
-        print("Lose")
-        quit()
+        text = font.render('You Lose! Press R to Restart!', True, (0, 255, 0), (0, 0, 0))
+        textRect = text.get_rect()
+        textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+        screen.blit(text, textRect)
+
 
     #Win condition
     if not bricks:
-        print("Win")
-        quit()
+        start = False
+        lives = 0
+        text = font.render('You won with {score here}! Press R to play again!', True, (0, 255, 0), (0, 0, 0))
+        textRect = text.get_rect()
+        textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+        screen.blit(text, textRect)
+
     # screen flip
     pygame.display.flip()
 
