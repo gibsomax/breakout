@@ -9,6 +9,8 @@ from breakout_main.game_objects.brick import BRICK
 #create the screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Breakout")
+pygame.font.init()
+font = pygame.font.SysFont("Arial", 24)
 
 #define the clock
 clock = pygame.time.Clock()
@@ -32,6 +34,8 @@ def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
     return bricks
 
 bricks = create_bricks()
+score = 0
+start_time = None
 
 lives = default_lives
 
@@ -49,11 +53,16 @@ while running:
         ball = [BALL()]
         bricks = create_bricks()
         paddle = PADDLE()
+        score = 0
+        start_time = None
         start = False
         lives = default_lives
     #starts the ball moving
     if keys[pygame.K_SPACE] and lives > 0:
         start = True
+        if start_time is None:
+            start_time = pygame.time.get_ticks()
+
 
     # exit
     if keys[pygame.K_q]:
@@ -86,6 +95,8 @@ while running:
             if brick.alive and brick.rect.colliderect(ball_obj.ball_rect):
                 brick.hit()
                 ball_obj.vy *= -1
+                if not brick.alive:
+                    score += 100
                 break
     bricks = [b for b in bricks if b.alive]
 
@@ -94,6 +105,12 @@ while running:
 
     #draw paddle
     paddle.draw(screen)
+
+    # score and timer HUD
+    elapsed = (pygame.time.get_ticks() - start_time) // 1000 if start_time else 0
+    multiplier = max(1, 10 - elapsed // 60)
+    hud = font.render(f"Score: {score} Time: {elapsed} x{multiplier}", True, (255, 255, 255))
+    screen.blit(hud, (SCREEN_WIDTH - 400, 10))
 
     #draw bricks
     for brick in bricks:
