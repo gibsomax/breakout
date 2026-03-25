@@ -1,13 +1,13 @@
+"""
+Description
+"""
 import pygame
-
+#Init
 pygame.init()
-
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
-
 screen = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 pygame.display.set_caption("Design Sample")
-
 running = True
 
 #neon test colors (provided by AI)
@@ -86,6 +86,15 @@ DARK_NEON_COLORS = [
 inner_box_color = [(0, 110, 120),(160, 40, 120),(80, 40, 120),(0, 60, 120),(0, 100, 60),(140, 120, 0),(160, 90, 30),(140, 0, 120)]
 
 def brick(x,y,box_width, box_height):
+    """
+    Description
+
+    Args:
+        x ():
+        y ():
+        box_width ():
+        box_height ():
+    """
     brick_size_x = box_width * 0.068
     brick_size_y = box_height * 0.064
     spacing_x = brick_size_x * 0.16
@@ -100,6 +109,15 @@ def brick(x,y,box_width, box_height):
             border_radius=int(brick_size_x*.1))
 
 def paddle(x, y, box_width, box_height):
+    """
+    Description
+
+    Args:
+        x ():
+        y ():
+        box_width ():
+        box_height ():
+    """
     paddle_size_x = box_width * 0.16
     paddle_size_y = box_height * 0.064
     pygame.draw.rect(
@@ -109,6 +127,14 @@ def paddle(x, y, box_width, box_height):
         border_radius=int(paddle_size_x * .05))
 
 def inner_box(box_x,box_y,color=(0,0,0)):
+    """
+    Description
+
+    Args:
+        box_x (int):
+        box_y (int):
+        color (tuple):
+    """
     box_size_x = SCREEN_WIDTH * 0.235    # 23.5% of screen width
     box_size_y = SCREEN_HEIGHT * 0.235   # 23.5% of screen height
     spacing_x = box_size_x * 0.05  # 5% of box width
@@ -148,8 +174,3 @@ def inner_box(box_x,box_y,color=(0,0,0)):
 
    #screen.fill((0, 0, 15))
    #inner_box(25,25,inner_box_color)
-
-
-
-
-

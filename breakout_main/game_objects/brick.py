@@ -1,7 +1,31 @@
 import pygame
 
 class BRICK:
+    """
+    Description
+
+    Attributes:
+        rect ():
+        color (tuple):
+        health (int):
+        alive (bool):
+
+    Methods:
+        hit():
+        draw():
+    """
     def __init__(self, x, y, width=60, height=20, color=(200, 50, 50), health=1):
+        """
+        Description
+
+        Args:
+            x (int):
+            y (int):
+            width (int):
+            height (int)
+            color (tuple):
+            health (int):
+        """
         self.rect = pygame.Rect(x, y, width, height)
         self.color = color
         self.health = health
@@ -9,7 +33,7 @@ class BRICK:
 
     def hit(self):
         """
-
+        Description
         """
         self.health -= 1
         if self.health <= 0:
@@ -20,7 +44,7 @@ class BRICK:
         Description
 
         Args:
-            surface:
+            surface ():
         """
         if self.alive:
             pygame.draw.rect(surface, self.color, self.rect)

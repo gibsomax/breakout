@@ -6,17 +6,28 @@ from settings import ball_size,SCREEN_HEIGHT,SCREEN_WIDTH,ball_speed
 import pygame
 import random
 
-
 class BALL:
     """
     Description
 
     Attributes:
+        ball_size (int):
+        ball_surface ():
+        ball_surface.fill ():
+        ball_rect ():
+        ball_rect.center (int):
+        vx ():
+        vy ():
+        destroy (bool):
 
     Methods:
+        update():
         draw(): Returns the card's suit.
     """
     def __init__(self):
+        """
+        Description
+        """
         self.ball_size = ball_size
         self.ball_surface = pygame.Surface((10,10))
         self.ball_surface.fill((255, 255, 255))
@@ -28,7 +39,7 @@ class BALL:
 
     def update(self):
         """
-
+        Description
         """
         self.ball_rect.x += self.vx
         self.ball_rect.y += self.vy
@@ -47,6 +58,6 @@ class BALL:
         Description
 
         Args:
-            surface:
+            surface ():
         """
         surface.blit(self.ball_surface, self.ball_rect)

@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Added a win and loss screen without score functionality.">
-      <change beforePath="$PROJECT_DIR$/.idea/breakout.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/breakout.iml" afterDir="false" />
+    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Implemented score into win screen and started docstrings.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/Design_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/Design_template.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/brick.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/brick.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/paddle.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/paddle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,16 +41,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.Design_template.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.toggle_box.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.Design_template.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.toggle_box.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\tagib\PycharmProjects\breakout\breakout_main" />
@@ -197,6 +198,27 @@
       <option name="presentableId" value="Default" />
       <updated>1770512327398</updated>
     </task>
+    <task id="LOCAL-00001" summary="Implemented score into win screen and started docstrings.">
+      <option name="closed" value="true" />
+      <created>1774447387662</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1774447387662</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Implemented score into win screen and started docstrings.">
+      <option name="closed" value="true" />
+      <created>1774447519841</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1774447519841</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implemented score into win screen and started docstrings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented score into win screen and started docstrings." />
   </component>
 </project>

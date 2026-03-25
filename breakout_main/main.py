@@ -1,4 +1,6 @@
-#this is where the game loop will live
+"""
+Description
+"""
 import pygame
 import sys
 from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives
@@ -24,7 +26,7 @@ paddle = PADDLE()
 #adding bricks
 def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
     """
-    Creates the rows and columns of bricks that can be interacted with.
+    Creates the rows and columns of bricks that can be interacted with using the BRICK object.
 
     Args:
         rows (int):
@@ -34,7 +36,7 @@ def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
         padding (int):
 
     Returns:
-        list: The bricks
+        list: The BRICK objects in a list.
     """
     bricks = []
     brick_w, brick_h = 70, 25

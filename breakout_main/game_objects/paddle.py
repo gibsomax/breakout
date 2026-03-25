@@ -9,11 +9,18 @@ class PADDLE:
     Description
 
      Attributes:
+        paddle_size_x (int):
+        paddle_size_y (int):
+        paddle_rect ():
+        rad (int):
 
      Methods:
-         draw(): Returns the card's suit.
+         draw():
      """
     def __init__(self):
+        """
+        Description:
+        """
         self.paddle_size_x = SCREEN_WIDTH * 0.16
         self.paddle_size_y = SCREEN_HEIGHT * 0.064
 
@@ -28,7 +35,10 @@ class PADDLE:
 
     def draw(self, surface):
         """
-        A white rectangle is frawn
+        A white rectangle is drawn
+
+        Args:
+            surface ():
         """
         pygame.draw.rect(
             surface,
@@ -36,5 +46,3 @@ class PADDLE:
             self.paddle_rect,
             border_radius=self.rad
         )
-
-

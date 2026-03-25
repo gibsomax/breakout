@@ -1,4 +1,15 @@
-#this will be a place to adjust things like ball speed, window size etc.
+"""
+Description
+
+Attributes:
+    SCREEN_WIDTH (int):
+    SCREEN_HEIGHT (int):
+    ball_size (int):
+    velocity (int):
+    paddle_rad (int):
+    ball_speed (int)
+    default_lives (int)
+"""
 import pygame
 pygame.init()
 
