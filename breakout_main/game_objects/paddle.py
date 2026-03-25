@@ -1,25 +1,23 @@
-#this will house the paddle.
-#it needs to be able to be moved left and right with the mouse and/or arrow keys.
 #it needs to have collision on the top and sides but allow a ball to pass through on the bottom.
 import pygame
 from settings import paddle_rad,SCREEN_WIDTH,SCREEN_HEIGHT
 
 class PADDLE:
     """
-    Description
+    Represents the characteristics and current state of the paddle object.
 
      Attributes:
-        paddle_size_x (int):
-        paddle_size_y (int):
-        paddle_rect ():
+        paddle_size_x (int): How wide the paddle is.
+        paddle_size_y (int): How tall the paddle is below its starting vertical position.
+        paddle_rect (): How wide and tall the paddle is and its starting position.
         rad (int):
 
      Methods:
-         draw():
+         draw(): Creates the image of the paddle object at the corresponding position.
      """
     def __init__(self):
         """
-        Description:
+        Initializes the paddle object.
         """
         self.paddle_size_x = SCREEN_WIDTH * 0.16
         self.paddle_size_y = SCREEN_HEIGHT * 0.064
@@ -35,7 +33,7 @@ class PADDLE:
 
     def draw(self, surface):
         """
-        A white rectangle is drawn
+        Creates the image of the paddle object at the corresponding position.
 
         Args:
             surface ():
