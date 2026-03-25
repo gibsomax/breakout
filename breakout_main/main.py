@@ -1,5 +1,6 @@
 """
-Description
+Contains the game loop. When it is run the player is able to play the game. All variables initialized are used solely within this module. No part of this module is called
+    in any other module. This module takes the player inputs, provides score and time feedback, initializes the brick, ball, and paddle, and detects collisions.
 """
 import pygame
 import sys
@@ -29,11 +30,11 @@ def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
     Creates the rows and columns of bricks that can be interacted with using the BRICK object.
 
     Args:
-        rows (int):
-        cols (int):
-        offset_x (int):
-        offset_y (int):
-        padding (int):
+        rows (int): Determines the number of rows of bricks that will appear on screen.
+        cols (int): Determines the number of columns of bricks that will appear on screen.
+        offset_x (int): Determines how far from either side of the screen the bricks appear.
+        offset_y (int): Determines how far from the top of the screen the bricks appear.
+        padding (int): Determines how far from other bricks the bricks appear.
 
     Returns:
         list: The BRICK objects in a list.
