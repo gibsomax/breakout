@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Continued filling docstrings.">
-      <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
+    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Finished main file docstrings.">
+      <change beforePath="$PROJECT_DIR$/breakout_main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -232,13 +232,22 @@
       <option name="project" value="LOCAL" />
       <updated>1774457254843</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Finished main file docstrings.">
+      <option name="closed" value="true" />
+      <created>1774457870625</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1774457870625</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implemented score into win screen and started docstrings." />
     <MESSAGE value="Created a standard template for the docstrings which is partially filled." />
     <MESSAGE value="Continued filling docstrings." />
-    <option name="LAST_COMMIT_MESSAGE" value="Continued filling docstrings." />
+    <MESSAGE value="Finished main file docstrings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished main file docstrings." />
   </component>
 </project>

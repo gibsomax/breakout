@@ -2,7 +2,7 @@
 Description
 
 Attributes:
-    SCREEN_WIDTH (int):
+    SCREEN_WIDTH (int): How wide the windows the game is played in appears.
     SCREEN_HEIGHT (int):
     ball_size (int):
     velocity (int):

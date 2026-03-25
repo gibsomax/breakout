@@ -30,11 +30,11 @@ def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
     Creates the rows and columns of bricks that can be interacted with using the BRICK object.
 
     Args:
-        rows (int): Determines the number of rows of bricks that will appear on screen.
-        cols (int): Determines the number of columns of bricks that will appear on screen.
-        offset_x (int): Determines how far from either side of the screen the bricks appear.
-        offset_y (int): Determines how far from the top of the screen the bricks appear.
-        padding (int): Determines how far from other bricks the bricks appear.
+        rows (int): The number of rows of bricks that will appear on screen.
+        cols (int): The number of columns of bricks that will appear on screen.
+        offset_x (int): How far from either side of the screen the bricks appear.
+        offset_y (int): How far from the top of the screen the bricks appear.
+        padding (int): How far from other bricks the bricks appear.
 
     Returns:
         list: The BRICK objects in a list.
