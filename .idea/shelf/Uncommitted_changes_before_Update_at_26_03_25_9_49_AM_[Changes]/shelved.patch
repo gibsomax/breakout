@@ -1,0 +1,142 @@
+Index: breakout_main/game_objects/brick.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import pygame\r\n\r\nclass BRICK:\r\n    def __init__(self, x, y, width=60, height=20, color=(200, 50, 50), health=1):\r\n        self.rect = pygame.Rect(x, y, width, height)\r\n        self.color = color\r\n        self.health = health\r\n        self.alive = True\r\n\r\n    def hit(self):\r\n        self.health -= 1\r\n        if self.health <= 0:\r\n            self.alive = False\r\n\r\n    def draw(self, surface):\r\n        if self.alive:\r\n            pygame.draw.rect(surface, self.color, self.rect)\r\n            pygame.draw.rect(surface, (0, 0, 0), self.rect, 1)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/breakout_main/game_objects/brick.py b/breakout_main/game_objects/brick.py
+--- a/breakout_main/game_objects/brick.py	(revision 8e27c26025d0853e6de47b24035c34013f810c4b)
++++ b/breakout_main/game_objects/brick.py	(date 1774446114041)
+@@ -8,11 +8,20 @@
+         self.alive = True
+ 
+     def hit(self):
++        """
++
++        """
+         self.health -= 1
+         if self.health <= 0:
+             self.alive = False
+ 
+     def draw(self, surface):
++        """
++        Description
++
++        Args:
++            surface:
++        """
+         if self.alive:
+             pygame.draw.rect(surface, self.color, self.rect)
+             pygame.draw.rect(surface, (0, 0, 0), self.rect, 1)
+Index: breakout_main/game_objects/paddle.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#this will house the paddle.\r\n#it needs to be able to be moved left and right with the mouse and/or arrow keys.\r\n#it needs to have collision on the top and sides but allow a ball to pass through on the bottom.\r\nimport pygame\r\nfrom breakout_main.settings import paddle_rad,SCREEN_WIDTH,SCREEN_HEIGHT\r\n\r\nclass PADDLE:\r\n    def __init__(self):\r\n        self.paddle_size_x = SCREEN_WIDTH * 0.16\r\n        self.paddle_size_y = SCREEN_HEIGHT * 0.064\r\n\r\n        self.paddle_rect = pygame.Rect(\r\n            SCREEN_WIDTH * 0.419,\r\n            SCREEN_HEIGHT * 0.9,\r\n            self.paddle_size_x,\r\n            self.paddle_size_y\r\n        )\r\n\r\n        self.rad = paddle_rad\r\n\r\n    def draw(self, surface):\r\n        pygame.draw.rect(\r\n            surface,\r\n            (200, 200, 255),\r\n            self.paddle_rect,\r\n            border_radius=self.rad\r\n        )\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/breakout_main/game_objects/paddle.py b/breakout_main/game_objects/paddle.py
+--- a/breakout_main/game_objects/paddle.py	(revision 8e27c26025d0853e6de47b24035c34013f810c4b)
++++ b/breakout_main/game_objects/paddle.py	(date 1774446204142)
+@@ -5,6 +5,14 @@
+ from breakout_main.settings import paddle_rad,SCREEN_WIDTH,SCREEN_HEIGHT
+ 
+ class PADDLE:
++    """
++    Description
++
++     Attributes:
++
++     Methods:
++         draw(): Returns the card's suit.
++     """
+     def __init__(self):
+         self.paddle_size_x = SCREEN_WIDTH * 0.16
+         self.paddle_size_y = SCREEN_HEIGHT * 0.064
+@@ -19,6 +27,9 @@
+         self.rad = paddle_rad
+ 
+     def draw(self, surface):
++        """
++        A white rectangle is frawn
++        """
+         pygame.draw.rect(
+             surface,
+             (200, 200, 255),
+Index: breakout_main/main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#this is where the game loop will live\r\nimport pygame\r\nimport sys\r\nfrom settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives, font\r\nfrom game_objects.ball import BALL\r\nfrom game_objects.paddle import PADDLE\r\nfrom game_objects.brick import BRICK\r\n\r\n#create the screen\r\nscreen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))\r\npygame.display.set_caption(\"Breakout\")\r\n\r\n#define the clock\r\nclock = pygame.time.Clock()\r\n\r\n#init\r\nball = [BALL()]\r\nball_destroy = []\r\nstart = False\r\npaddle = PADDLE()\r\n\r\n#adding bricks\r\ndef create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):\r\n    bricks = []\r\n    brick_w, brick_h = 70, 25\r\n    colors = [(220,50,50),(220, 130, 50),(220,220,50),(50,200,50),(50,100,220)]\r\n    for row in range(rows):\r\n        for col in range(cols):\r\n            x = offset_x + col * (brick_w + padding)\r\n            y = offset_y + row * (brick_h + padding)\r\n            bricks.append(BRICK(x, y, brick_w, brick_h, colors[row % len(colors)]))\r\n    return bricks\r\n\r\nbricks = create_bricks()\r\n\r\nlives = default_lives\r\n\r\n#game loop\r\nrunning = True\r\nwhile running:\r\n    # quit\r\n    for event in pygame.event.get():\r\n        if event.type == pygame.QUIT:\r\n            running = False\r\n\r\n    keys = pygame.key.get_pressed()\r\n    # restart\r\n    if keys[pygame.K_r]:\r\n        ball = [BALL()]\r\n        bricks = create_bricks()\r\n        paddle = PADDLE()\r\n        start = False\r\n        lives = default_lives\r\n    #starts the ball moving\r\n    if keys[pygame.K_SPACE] and lives > 0:\r\n        start = True\r\n\r\n    # exit\r\n    if keys[pygame.K_q]:\r\n        pygame.quit()\r\n\r\n    # paddle movement, and ball if it has not started moving yet\r\n    if keys[pygame.K_LEFT] and paddle.paddle_rect.left >= 0+paddle_rad:\r\n        paddle.paddle_rect.x -= velocity\r\n        if not start:\r\n            ball[0].ball_rect.x -= velocity\r\n    if keys[pygame.K_RIGHT] and paddle.paddle_rect.right <= SCREEN_WIDTH-paddle_rad:\r\n        paddle.paddle_rect.x += velocity\r\n        if not start:\r\n            ball[0].ball_rect.x += velocity\r\n\r\n    #ball/paddle collision\r\n    for i in ball:\r\n        if paddle.paddle_rect.colliderect(i.ball_rect):\r\n            if i.ball_rect.bottom <= paddle.paddle_rect.top + abs(i.vy):\r\n                i.vy = -ball_speed\r\n                i.vx = (i.ball_rect.x / 10 - paddle.paddle_rect.center[0] / 10)\r\n            elif i.ball_rect.right <= paddle.paddle_rect.left + abs(i.vy):\r\n                i.vx = -ball_speed\r\n            elif i.ball_rect.left <= paddle.paddle_rect.right + abs(i.vy):\r\n                i.vx = ball_speed\r\n\r\n    #ball/brick collision\r\n    for ball_obj in ball:\r\n        for brick in bricks:\r\n            if brick.alive and brick.rect.colliderect(ball_obj.ball_rect):\r\n                brick.hit()\r\n                ball_obj.vy *= -1\r\n                break\r\n    bricks = [b for b in bricks if b.alive]\r\n\r\n    # clear screen\r\n    screen.fill((0, 0, 0))\r\n\r\n    #draw paddle\r\n    paddle.draw(screen)\r\n\r\n    #draw bricks\r\n    for brick in bricks:\r\n        brick.draw(screen)\r\n\r\n    #destroys balls when they hit the bottom of the screen\r\n    if start:\r\n        for i in range(len(ball)):\r\n            if ball[i].destroy:\r\n                ball_destroy.append(ball[i])\r\n                lives -= 1\r\n                start = False\r\n                paddle = PADDLE()\r\n            ball[i].update()\r\n    for i in range(len(ball)):\r\n        ball[i].draw(screen)\r\n    for i in ball_destroy:\r\n        ball.remove(i)\r\n        ball = [BALL()]\r\n    ball_destroy.clear()\r\n\r\n    #Loss condition\r\n    if lives == 0:\r\n        text = font.render('You Lose! Press R to Restart!', True, (0, 255, 0), (0, 0, 0))\r\n        textRect = text.get_rect()\r\n        textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)\r\n        screen.blit(text, textRect)\r\n\r\n\r\n    #Win condition\r\n    if not bricks:\r\n        start = False\r\n        lives = 0\r\n        text = font.render('You won with {score here}! Press R to play again!', True, (0, 255, 0), (0, 0, 0))\r\n        textRect = text.get_rect()\r\n        textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)\r\n        screen.blit(text, textRect)\r\n\r\n    # screen flip\r\n    pygame.display.flip()\r\n\r\n    # FPS\r\n    clock.tick(60)\r\n# ---after loop quit---\r\npygame.quit()\r\nsys.exit()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/breakout_main/main.py b/breakout_main/main.py
+--- a/breakout_main/main.py	(revision 8e27c26025d0853e6de47b24035c34013f810c4b)
++++ b/breakout_main/main.py	(date 1774446339360)
+@@ -21,6 +21,19 @@
+ 
+ #adding bricks
+ def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
++    """
++    Creates the rows and columns of bricks that can be interacted with.
++
++    Args:
++        rows (int):
++        cols (int):
++        offset_x (int):
++        offset_y (int):
++        padding (int):
++
++    Returns:
++        list: The bricks
++    """
+     bricks = []
+     brick_w, brick_h = 70, 25
+     colors = [(220,50,50),(220, 130, 50),(220,220,50),(50,200,50),(50,100,220)]
+Index: breakout_main/game_objects/ball.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#this will house the ball.\r\n#it needs to have collisions\r\n#it needs to push another ball into an outer brick upon collision\r\n#also needs to bounce off outer brick upon collision\r\nfrom settings import ball_size,SCREEN_HEIGHT,SCREEN_WIDTH,ball_speed\r\nimport pygame\r\nimport random\r\n\r\n\r\nclass BALL:\r\n    def __init__(self):\r\n        self.ball_size = ball_size\r\n        self.ball_surface = pygame.Surface((10,10))\r\n        self.ball_surface.fill((255, 255, 255))\r\n        self.ball_rect = self.ball_surface.get_rect()\r\n        self.ball_rect.center = (SCREEN_WIDTH * .5,SCREEN_HEIGHT *.885)\r\n        self.vx = random.choice([-ball_speed,ball_speed])\r\n        self.vy = -ball_speed\r\n        self.destroy = False\r\n\r\n    def update(self):\r\n        self.ball_rect.x += self.vx\r\n        self.ball_rect.y += self.vy\r\n        if self.ball_rect.x < 1:\r\n            self.vx = ball_speed\r\n        if self.ball_rect.right >= SCREEN_WIDTH:\r\n            self.vx = -ball_speed\r\n        if self.ball_rect.y < 1:\r\n            self.vy = ball_speed\r\n        if self.ball_rect.bottom >= SCREEN_HEIGHT:\r\n            self.destroy = True\r\n\r\n\r\n    def draw(self, surface):\r\n        surface.blit(self.ball_surface, self.ball_rect)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/breakout_main/game_objects/ball.py b/breakout_main/game_objects/ball.py
+--- a/breakout_main/game_objects/ball.py	(revision 8e27c26025d0853e6de47b24035c34013f810c4b)
++++ b/breakout_main/game_objects/ball.py	(date 1774446249282)
+@@ -8,6 +8,14 @@
+ 
+ 
+ class BALL:
++    """
++    Description
++
++    Attributes:
++
++    Methods:
++        draw(): Returns the card's suit.
++    """
+     def __init__(self):
+         self.ball_size = ball_size
+         self.ball_surface = pygame.Surface((10,10))
+@@ -19,6 +27,9 @@
+         self.destroy = False
+ 
+     def update(self):
++        """
++
++        """
+         self.ball_rect.x += self.vx
+         self.ball_rect.y += self.vy
+         if self.ball_rect.x < 1:
+@@ -32,4 +43,10 @@
+ 
+ 
+     def draw(self, surface):
++        """
++        Description
++
++        Args:
++            surface:
++        """
+         surface.blit(self.ball_surface, self.ball_rect)
