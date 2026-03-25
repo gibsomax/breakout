@@ -1,14 +1,14 @@
 """
-Description
+Stores variables called in multiple modules that are largely unchanging.
 
 Attributes:
-    SCREEN_WIDTH (int): How wide the windows the game is played in appears.
-    SCREEN_HEIGHT (int):
-    ball_size (int):
-    velocity (int):
-    paddle_rad (int):
-    ball_speed (int)
-    default_lives (int)
+    SCREEN_WIDTH (int): How wide the window the game is played in appears.
+    SCREEN_HEIGHT (int): How long the windows the game is played in appears.
+    ball_size (int): How large the ball appears.
+    velocity (int): How fast the paddle moves.
+    paddle_rad (int): How longs the paddle appears.
+    ball_speed (int): How fast the ball moves.
+    default_lives (int): How many times the ball can be destroyed before the game ends.
 """
 import pygame
 pygame.init()
