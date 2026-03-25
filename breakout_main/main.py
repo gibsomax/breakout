@@ -2,9 +2,9 @@
 import pygame
 import sys
 from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives, font
-from game_objects.ball import BALL
-from game_objects.paddle import PADDLE
-from game_objects.brick import BRICK
+from breakout_main.game_objects.ball import BALL
+from breakout_main.game_objects.paddle import PADDLE
+from breakout_main.game_objects.brick import BRICK
 
 #create the screen
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
