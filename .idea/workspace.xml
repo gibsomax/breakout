@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Finished main file docstrings.">
-      <change beforePath="$PROJECT_DIR$/breakout_main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/settings.py" afterDir="false" />
+    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Finished settings file docstrings.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +39,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.Design_template.executor": "Run",
+    "Python.ball.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.settings.executor": "Run",
     "Python.toggle_box.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -240,7 +243,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774457870625</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Finished and slight fix for main file docstrings.">
+      <option name="closed" value="true" />
+      <created>1774457996915</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1774457996915</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Finished settings file docstrings.">
+      <option name="closed" value="true" />
+      <created>1774458243399</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1774458243399</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -248,6 +267,8 @@
     <MESSAGE value="Created a standard template for the docstrings which is partially filled." />
     <MESSAGE value="Continued filling docstrings." />
     <MESSAGE value="Finished main file docstrings." />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished main file docstrings." />
+    <MESSAGE value="Finished and slight fix for main file docstrings." />
+    <MESSAGE value="Finished settings file docstrings." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished settings file docstrings." />
   </component>
 </project>

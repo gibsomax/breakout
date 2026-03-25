@@ -1,5 +1,3 @@
-#this will house the ball.
-#it needs to have collisions
 #it needs to push another ball into an outer brick upon collision
 #also needs to bounce off outer brick upon collision
 from settings import ball_size,SCREEN_HEIGHT,SCREEN_WIDTH,ball_speed
@@ -8,25 +6,25 @@ import random
 
 class BALL:
     """
-    Description
+    Represents the characteristics and current state of the ball object.
 
     Attributes:
-        ball_size (int):
+        ball_size (int): How large the ball appears.
         ball_surface ():
         ball_surface.fill ():
         ball_rect ():
-        ball_rect.center (int):
-        vx ():
-        vy ():
-        destroy (bool):
+        ball_rect.center (int): Where the center of the fall is located.
+        vx (): The horizontal direction the ball is going to travel.
+        vy (): The vertical direction the ball is going to travel.
+        destroy (bool): Whether the ball should be destroyed or not.
 
     Methods:
-        update():
-        draw(): .
+        update(): Changes the ball object's movement direction or destroy state.
+        draw(): Creates the image of the ball object at the corresponding screen position.
     """
     def __init__(self):
         """
-        Description
+        Initializes the ball object.
         """
         self.ball_size = ball_size
         self.ball_surface = pygame.Surface((10,10))
@@ -39,7 +37,7 @@ class BALL:
 
     def update(self):
         """
-        Description
+        Changes the ball object's movement direction or destroy state.
         """
         self.ball_rect.x += self.vx
         self.ball_rect.y += self.vy
@@ -55,7 +53,7 @@ class BALL:
 
     def draw(self, surface):
         """
-        Description
+        Creates the image of the ball object at the corresponding position.
 
         Args:
             surface ():
