@@ -9,8 +9,8 @@ class PADDLE:
      Attributes:
         paddle_size_x (int): How wide the paddle is.
         paddle_size_y (int): How tall the paddle is below its starting vertical position.
-        paddle_rect (): How wide and tall the paddle is and its starting position.
-        rad (int):
+        paddle_rect (?): How wide and tall the paddle is and its starting position.
+        rad (int): ?
 
      Methods:
          draw(): Creates the image of the paddle object at the corresponding position.
@@ -36,7 +36,7 @@ class PADDLE:
         Creates the image of the paddle object at the corresponding position.
 
         Args:
-            surface ():
+            surface (?): ?
         """
         pygame.draw.rect(
             surface,

@@ -5,7 +5,7 @@ class BRICK:
     Represents the characteristics and current state of the brick objects.
 
     Attributes:
-        rect ():
+        rect (?): ?
         color (tuple): Color of the brick.
         health (int): Value determining how many times a brick can be hit.
         alive (bool): Value determining if the brick is alive and on screen or not.
@@ -44,7 +44,7 @@ class BRICK:
         Creates the image of the brick if the brick is still alive.
 
         Args:
-            surface ():
+            surface (?): ?
         """
         if self.alive:
             pygame.draw.rect(surface, self.color, self.rect)

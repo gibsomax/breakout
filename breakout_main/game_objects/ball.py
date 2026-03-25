@@ -10,12 +10,12 @@ class BALL:
 
     Attributes:
         ball_size (int): How large the ball appears.
-        ball_surface ():
-        ball_surface.fill ():
-        ball_rect ():
+        ball_surface (?): ?
+        ball_surface.fill (?): ?
+        ball_rect (?): ?
         ball_rect.center (int): Where the center of the fall is located.
-        vx (): The horizontal direction the ball is going to travel.
-        vy (): The vertical direction the ball is going to travel.
+        vx (?): The horizontal direction the ball is going to travel.
+        vy (?): The vertical direction the ball is going to travel.
         destroy (bool): Whether the ball should be destroyed or not.
 
     Methods:
@@ -56,6 +56,6 @@ class BALL:
         Creates the image of the ball object at the corresponding position.
 
         Args:
-            surface ():
+            surface (?): ?
         """
         surface.blit(self.ball_surface, self.ball_rect)
