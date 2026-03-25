@@ -14,8 +14,8 @@ class BALL:
         ball_surface.fill (?): ?
         ball_rect (?): ?
         ball_rect.center (int): Where the center of the fall is located.
-        vx (?): The horizontal direction the ball is going to travel.
-        vy (?): The vertical direction the ball is going to travel.
+        vx (float): The horizontal direction the ball is going to travel.
+        vy (int): The vertical direction the ball is going to travel.
         destroy (bool): Whether the ball should be destroyed or not.
 
     Methods:

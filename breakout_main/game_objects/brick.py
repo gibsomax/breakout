@@ -5,7 +5,7 @@ class BRICK:
     Represents the characteristics and current state of the brick objects.
 
     Attributes:
-        rect (?): ?
+        rect (?): How wide and tall the brick is and its starting position.
         color (tuple): Color of the brick.
         health (int): Value determining how many times a brick can be hit.
         alive (bool): Value determining if the brick is alive and on screen or not.
