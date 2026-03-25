@@ -90,10 +90,10 @@ def brick(x,y,box_width, box_height):
     Description
 
     Args:
-        x ():
-        y ():
-        box_width ():
-        box_height ():
+        x (float):
+        y (float):
+        box_width (float):
+        box_height (gloat):
     """
     brick_size_x = box_width * 0.068
     brick_size_y = box_height * 0.064
@@ -113,10 +113,10 @@ def paddle(x, y, box_width, box_height):
     Description
 
     Args:
-        x ():
-        y ():
-        box_width ():
-        box_height ():
+        x (float):
+        y (float):
+        box_width (float):
+        box_height (float):
     """
     paddle_size_x = box_width * 0.16
     paddle_size_y = box_height * 0.064

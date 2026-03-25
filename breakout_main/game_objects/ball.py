@@ -22,7 +22,7 @@ class BALL:
 
     Methods:
         update():
-        draw(): Returns the card's suit.
+        draw(): .
     """
     def __init__(self):
         """
