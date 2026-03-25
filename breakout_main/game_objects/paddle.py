@@ -5,6 +5,14 @@ import pygame
 from settings import paddle_rad,SCREEN_WIDTH,SCREEN_HEIGHT
 
 class PADDLE:
+    """
+    Description
+
+     Attributes:
+
+     Methods:
+         draw(): Returns the card's suit.
+     """
     def __init__(self):
         self.paddle_size_x = SCREEN_WIDTH * 0.16
         self.paddle_size_y = SCREEN_HEIGHT * 0.064
@@ -19,6 +27,9 @@ class PADDLE:
         self.rad = paddle_rad
 
     def draw(self, surface):
+        """
+        A white rectangle is frawn
+        """
         pygame.draw.rect(
             surface,
             (200, 200, 255),

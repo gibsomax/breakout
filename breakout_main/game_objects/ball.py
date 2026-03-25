@@ -8,6 +8,14 @@ import random
 
 
 class BALL:
+    """
+    Description
+
+    Attributes:
+
+    Methods:
+        draw(): Returns the card's suit.
+    """
     def __init__(self):
         self.ball_size = ball_size
         self.ball_surface = pygame.Surface((10,10))
@@ -19,6 +27,9 @@ class BALL:
         self.destroy = False
 
     def update(self):
+        """
+
+        """
         self.ball_rect.x += self.vx
         self.ball_rect.y += self.vy
         if self.ball_rect.x < 1:
@@ -32,4 +43,10 @@ class BALL:
 
 
     def draw(self, surface):
+        """
+        Description
+
+        Args:
+            surface:
+        """
         surface.blit(self.ball_surface, self.ball_rect)

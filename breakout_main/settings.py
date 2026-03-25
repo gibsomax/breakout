@@ -9,4 +9,3 @@ velocity = 10
 paddle_rad = int(SCREEN_WIDTH * 0.16 * .05)
 ball_speed = 4
 default_lives = 3
-font = pygame.font.Font('freesansbold.ttf', 32)

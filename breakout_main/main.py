@@ -1,7 +1,7 @@
 #this is where the game loop will live
 import pygame
 import sys
-from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives, font
+from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives
 from breakout_main.game_objects.ball import BALL
 from breakout_main.game_objects.paddle import PADDLE
 from breakout_main.game_objects.brick import BRICK
@@ -23,6 +23,19 @@ paddle = PADDLE()
 
 #adding bricks
 def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
+    """
+    Creates the rows and columns of bricks that can be interacted with.
+
+    Args:
+        rows (int):
+        cols (int):
+        offset_x (int):
+        offset_y (int):
+        padding (int):
+
+    Returns:
+        list: The bricks
+    """
     bricks = []
     brick_w, brick_h = 70, 25
     colors = [(220,50,50),(220, 130, 50),(220,220,50),(50,200,50),(50,100,220)]
@@ -144,7 +157,7 @@ while running:
     if not bricks:
         start = False
         lives = 0
-        text = font.render('You won with {score here}! Press R to play again!', True, (0, 255, 0), (0, 0, 0))
+        text = font.render(f'You won with {score} points! Press R to play again!', True, (0, 255, 0), (0, 0, 0))
         textRect = text.get_rect()
         textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
         screen.blit(text, textRect)
