@@ -7,8 +7,6 @@
     <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Any area with a question mark needs to have the docstrings updated with information I do not currently have.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/brick.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/brick.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -293,7 +291,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774465352040</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Any area with a question mark needs to have the docstrings updated with information I do not currently have.">
+      <option name="closed" value="true" />
+      <created>1774467078830</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1774467078830</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

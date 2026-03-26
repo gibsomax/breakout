@@ -10,9 +10,9 @@ class BALL:
 
     Attributes:
         ball_size (int): How large the ball appears.
-        ball_surface (?): ?
-        ball_surface.fill (?): ?
-        ball_rect (?): ?
+        ball_surface (int,int): Bounds of the ball object.
+        ball_surface.fill (tuple): Sets the color of the ball object.
+        ball_rect (rect): Area used for collisions.
         ball_rect.center (int): Where the center of the fall is located.
         vx (float): The horizontal direction the ball is going to travel.
         vy (int): The vertical direction the ball is going to travel.
@@ -56,6 +56,6 @@ class BALL:
         Creates the image of the ball object at the corresponding position.
 
         Args:
-            surface (?): ?
+            surface (surface): Passes the screen the ball will exist on.
         """
         surface.blit(self.ball_surface, self.ball_rect)
