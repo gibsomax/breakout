@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Any area with a question mark needs to have the docstrings updated with information I do not currently have.">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_26_2026_1_25_PM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_26_2026_9_59_AM_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_26_2026_9_59_AM__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/breakout_main/game_objects.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/breakout_main/game_objects/ball.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/breakout_main/game_objects/brick.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/breakout_main/game_objects/inner_box.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/breakout_main/game_objects/outer_box.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/breakout_main/game_objects/paddle.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/search.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/Design_template.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/Design_template.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/paddle.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/paddle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,12 +36,12 @@
     &quot;assignee&quot;: &quot;gibsomax&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/gibsomax/breakout.git",
-    "accountId": "747c05d2-5f6f-480e-b940-c11019a50ed3"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/gibsomax/breakout.git&quot;,
+    &quot;accountId&quot;: &quot;747c05d2-5f6f-480e-b940-c11019a50ed3&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -36,18 +50,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.Design_template.executor": "Run",
-    "Python.ball.executor": "Run",
-    "Python.main.executor": "Run",
-    "Python.settings.executor": "Run",
-    "Python.toggle_box.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Design_template.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ball.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.settings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.toggle_box.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\tagib\PycharmProjects\breakout\breakout_main" />

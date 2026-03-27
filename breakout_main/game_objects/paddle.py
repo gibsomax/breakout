@@ -1,6 +1,6 @@
 #it needs to have collision on the top and sides but allow a ball to pass through on the bottom.
 import pygame
-from settings import paddle_rad,SCREEN_WIDTH,SCREEN_HEIGHT
+from breakout_main.settings import paddle_rad,SCREEN_WIDTH,SCREEN_HEIGHT
 
 class PADDLE:
     """

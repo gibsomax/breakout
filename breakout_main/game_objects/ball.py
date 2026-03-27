@@ -1,6 +1,6 @@
 #it needs to push another ball into an outer brick upon collision
 #also needs to bounce off outer brick upon collision
-from settings import ball_size,SCREEN_HEIGHT,SCREEN_WIDTH,ball_speed
+from breakout_main.settings import ball_size,SCREEN_HEIGHT,SCREEN_WIDTH,ball_speed
 import pygame
 import random
 
