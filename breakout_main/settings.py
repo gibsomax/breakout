@@ -18,5 +18,5 @@ SCREEN_HEIGHT = 800
 ball_size = 5
 velocity = 10
 paddle_rad = int(SCREEN_WIDTH * 0.16 * .05)
-ball_speed = 4
+ball_speed = 3
 default_lives = 3

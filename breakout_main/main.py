@@ -2,6 +2,8 @@
 Contains the game loop. When it is run the player is able to play the game. All variables initialized are used solely within this module. No part of this module is called
     in any other module. This module takes the player inputs, provides score and time feedback, initializes the brick, ball, and paddle, and detects collisions.
 """
+import copy
+
 import pygame
 import sys
 from breakout_main.settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives
@@ -122,7 +124,7 @@ def main():
             if not start:
                 ball[0].ball_rect.x += velocity
 
-        #ball/paddle collision
+        #outside ball/paddle collision
         for i in ball:
             if paddle.paddle_rect.colliderect(i.ball_rect):
                 if i.ball_rect.bottom <= paddle.paddle_rect.top + abs(i.vy):
@@ -133,16 +135,58 @@ def main():
                 elif i.ball_rect.left <= paddle.paddle_rect.right + abs(i.vy):
                     i.vx = ball_speed
 
+        #inside ball/paddle collision
+        for j in inner_boxes:
+            for i in j.ball:
+                for k in inner_paddles:
+                    if k.paddle_rect.colliderect(i.ball_rect):
+                        if i.ball_rect.bottom <= paddle.paddle_rect.top + abs(i.vy):
+                            i.vy = -ball_speed
+                            i.vx = (i.ball_rect.x / 10 - k.paddle_rect.center[0] / 10)
+                        elif i.ball_rect.right <= k.paddle_rect.left + abs(i.vy):
+                            i.vx = -ball_speed
+                        elif i.ball_rect.left <= k.paddle_rect.right + abs(i.vy):
+                            i.vx = ball_speed
+
+        #outside ball collisions with inside box
+        for i in ball:
+            for j in inner_boxes:
+                if j.box_rect_bottom.colliderect(i.ball_rect) and i.is_inside == False:
+                    ball_copy = copy.copy(i)
+                    ball_copy.ball_rect = i.ball_rect.copy()
+                    ball_copy.ball_rect.y -= 5
+                    ball_copy.is_inside = True
+                    j.ball.append(ball_copy)
+                    i.vy = abs(i.vy)
+
+
+        #inside ball collisions with inside box
+        for j in inner_boxes:
+            for i in j.ball:
+                if j.box_rect_bottom.colliderect(i.ball_rect) and i.is_inside == True:
+                    j.ball_destroy.append(i)
+                if j.box_rect_top.colliderect(i.ball_rect) and i.is_inside == True:
+                    i.vy = abs(i.vy)
+                if j.box_rect_right.colliderect(i.ball_rect) and i.is_inside == True:
+                    i.vx = -abs(i.vx)
+                if j.box_rect_left.colliderect(i.ball_rect) and i.is_inside == True:
+                    i.vx = abs(i.vx)
+            for i in j.ball_destroy:
+                j.ball.remove(i)
+            j.ball_destroy.clear()
+
+
         #ball/brick collision
-        for ball_obj in ball:
-            for brick in bricks:
-                if brick.alive and brick.rect.colliderect(ball_obj.ball_rect):
-                    brick.hit()
-                    ball_obj.vy *= -1
-                    if not brick.alive:
-                        score += 100
-                    break
-        bricks = [b for b in bricks if b.alive]
+        for j in inner_boxes:
+            for ball_obj in j.ball:
+                for brick in bricks:
+                    if brick.alive and brick.rect.colliderect(ball_obj.ball_rect):
+                        brick.hit()
+                        ball_obj.vy *= -1
+                        if not brick.alive:
+                            score += 100
+                        break
+            bricks = [b for b in bricks if b.alive]
 
         # clear screen
         screen.fill((0, 0, 0))
@@ -181,6 +225,12 @@ def main():
             ball.remove(i)
             ball = [BALL()]
         ball_destroy.clear()
+
+        for i in inner_boxes:
+            for j in i.ball:
+                j.update()
+                j.draw(screen)
+
 
         #Loss condition
         if lives == 0:

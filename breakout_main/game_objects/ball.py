@@ -34,6 +34,7 @@ class BALL:
         self.vx = random.choice([-ball_speed,ball_speed])
         self.vy = -ball_speed
         self.destroy = False
+        self.is_inside = False
 
     def update(self):
         """
@@ -42,11 +43,11 @@ class BALL:
         self.ball_rect.x += self.vx
         self.ball_rect.y += self.vy
         if self.ball_rect.x < 1:
-            self.vx = ball_speed
+            self.vx = abs(self.vx)
         if self.ball_rect.right >= SCREEN_WIDTH:
-            self.vx = -ball_speed
+            self.vx = -abs(self.vx)
         if self.ball_rect.y < 1:
-            self.vy = ball_speed
+            self.vy = abs(self.vy)
         if self.ball_rect.bottom >= SCREEN_HEIGHT:
             self.destroy = True
 

@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Any area with a question mark needs to have the docstrings updated with information I do not currently have.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_25_9_49_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_26_03_25_9_49_AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_26_2026_1_25_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_26_2026_1_25_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_26_2026_9_59_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_26_2026_9_59_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/inner_box.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/inner_box.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/paddle.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/paddle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/settings.py" afterDir="false" />
     </list>
