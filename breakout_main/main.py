@@ -8,6 +8,7 @@ from breakout_main.settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_r
 from breakout_main.game_objects.ball import BALL
 from breakout_main.game_objects.paddle import PADDLE
 from breakout_main.game_objects.brick import BRICK
+from breakout_main.game_objects.inner_box import INNERBOX
 
 def main():
     #create the screen
@@ -23,10 +24,21 @@ def main():
     ball = [BALL()]
     ball_destroy = []
     start = False
-    paddle = PADDLE()
+    paddle = PADDLE(SCREEN_WIDTH * 0.16,SCREEN_HEIGHT * 0.064,SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
+    #set up inner box
+    inner_boxes = []
+    inner_paddles = []
+    offset_x = SCREEN_WIDTH * 0.23 + 15
+    offset_y = SCREEN_HEIGHT * 0.18 + 15
+    for i in range(4):
+        for j in range(2):
+            inner_boxes.append(INNERBOX((SCREEN_WIDTH*.018) + (i * offset_x),(SCREEN_HEIGHT*.054) + (j * offset_y)))
+    for i in inner_boxes:
+        inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.0299,SCREEN_HEIGHT * 0.01,i.box_rect_top.left +(i.box_rect_bottom.width * 0.438), i.box_rect_top.top + (i.box_rect_left.height * 0.9),1)))
+
 
     #adding bricks
-    def create_bricks(rows=8, cols=13, offset_x=18, offset_y=50, padding=4):
+    def create_bricks(rows=3, cols=10, offset_x=8, offset_y=8, padding=2):
         """
         Creates the rows and columns of bricks that can be interacted with using the BRICK object.
 
@@ -41,13 +53,14 @@ def main():
             list: The BRICK objects in a list.
         """
         bricks = []
-        brick_w, brick_h = 70, 25
+        brick_w, brick_h = 20, 8
         colors = [(220,50,50),(220, 130, 50),(220,220,50),(50,200,50),(50,100,220)]
-        for row in range(rows):
-            for col in range(cols):
-                x = offset_x + col * (brick_w + padding)
-                y = offset_y + row * (brick_h + padding)
-                bricks.append(BRICK(x, y, brick_w, brick_h, colors[row % len(colors)]))
+        for i in inner_boxes:
+            for row in range(rows):
+                for col in range(cols):
+                    x = offset_x + col * (brick_w + padding) + i.box_rect_top.left
+                    y = offset_y + row * (brick_h + padding) + i.box_rect_top.top
+                    bricks.append(BRICK(x, y, brick_w, brick_h, colors[row % len(colors)]))
         return bricks
 
     bricks = create_bricks()
@@ -69,7 +82,7 @@ def main():
         if keys[pygame.K_r]:
             ball = [BALL()]
             bricks = create_bricks()
-            paddle = PADDLE()
+            paddle = PADDLE(SCREEN_WIDTH * 0.16,SCREEN_HEIGHT * 0.064,SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
             score = 0
             start_time = None
             start = False
@@ -88,10 +101,24 @@ def main():
         # paddle movement, and ball if it has not started moving yet
         if keys[pygame.K_LEFT] and paddle.paddle_rect.left >= 0+paddle_rad:
             paddle.paddle_rect.x -= velocity
+            for i in inner_paddles:
+                if i.incr < 1:
+                    i.paddle_rect.x -= 2
+                    i.incr += .5
+                else:
+                    i.paddle_rect.x -= 3
+                    i.incr = 0
             if not start:
                 ball[0].ball_rect.x -= velocity
         if keys[pygame.K_RIGHT] and paddle.paddle_rect.right <= SCREEN_WIDTH-paddle_rad:
             paddle.paddle_rect.x += velocity
+            for i in inner_paddles:
+                if i.incr < 1:
+                    i.paddle_rect.x += 2
+                    i.incr += .5
+                else:
+                    i.paddle_rect.x += 3
+                    i.incr = 0
             if not start:
                 ball[0].ball_rect.x += velocity
 
@@ -120,8 +147,14 @@ def main():
         # clear screen
         screen.fill((0, 0, 0))
 
-        #draw paddle
+        #draw inner box
+        for i in inner_boxes:
+            i.draw(screen)
+
+        #draw paddles
         paddle.draw(screen)
+        for i in inner_paddles:
+            i.draw(screen)
 
         # score and timer HUD
         elapsed = (pygame.time.get_ticks() - start_time) // 1000 if start_time else 0
@@ -140,7 +173,7 @@ def main():
                     ball_destroy.append(ball[i])
                     lives -= 1
                     start = False
-                    paddle = PADDLE()
+                    paddle = PADDLE(SCREEN_WIDTH * 0.16,SCREEN_HEIGHT * 0.064,SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
                 ball[i].update()
         for i in range(len(ball)):
             ball[i].draw(screen)

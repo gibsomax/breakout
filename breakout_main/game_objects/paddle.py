@@ -15,21 +15,20 @@ class PADDLE:
      Methods:
          draw(): Creates the image of the paddle object at the corresponding position.
      """
-    def __init__(self):
+    def __init__(self,paddle_size_x,paddle_size_y,x,y,rad=paddle_rad):
         """
         Initializes the paddle object.
         """
-        self.paddle_size_x = SCREEN_WIDTH * 0.16
-        self.paddle_size_y = SCREEN_HEIGHT * 0.064
 
+        self.incr = .0
         self.paddle_rect = pygame.Rect(
-            SCREEN_WIDTH * 0.419,
-            SCREEN_HEIGHT * 0.9,
-            self.paddle_size_x,
-            self.paddle_size_y
+            x,
+            y,
+            paddle_size_x,
+            paddle_size_y
         )
 
-        self.rad = paddle_rad
+        self.rad = rad
 
     def draw(self, surface):
         """

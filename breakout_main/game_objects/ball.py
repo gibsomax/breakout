@@ -27,7 +27,7 @@ class BALL:
         Initializes the ball object.
         """
         self.ball_size = ball_size
-        self.ball_surface = pygame.Surface((10,10))
+        self.ball_surface = pygame.Surface((ball_size,ball_size))
         self.ball_surface.fill((255, 255, 255))
         self.ball_rect = self.ball_surface.get_rect()
         self.ball_rect.center = (SCREEN_WIDTH * .5,SCREEN_HEIGHT *.885)
