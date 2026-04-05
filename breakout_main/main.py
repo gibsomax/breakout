@@ -2,6 +2,8 @@
 Contains the game loop. When it is run the player is able to play the game. All variables initialized are used solely within this module. No part of this module is called
     in any other module. This module takes the player inputs, provides score and time feedback, initializes the brick, ball, and paddle, and detects collisions.
 """
+from operator import truediv
+
 import pygame
 import sys
 from settings import SCREEN_WIDTH, SCREEN_HEIGHT,velocity,paddle_rad,ball_speed, default_lives
@@ -109,6 +111,12 @@ while running:
     for ball_obj in ball:
         for brick in bricks:
             if brick.alive and brick.rect.colliderect(ball_obj.ball_rect):
+                #ball right side, brick left side
+                if ball_obj.ball_rect.topright[0] - brick.rect.topleft[0] < 5:
+                    ball_obj.vx *= -1
+                #ball left side, brick right side
+                elif 10 > ball_obj.ball_rect.topleft[0] - brick.rect.topright[0] > -5:
+                    ball_obj.vx *= -1
                 brick.hit()
                 ball_obj.vy *= -1
                 if not brick.alive:
