@@ -204,11 +204,13 @@ def main():
         for i in inner_paddles:
             i.draw(screen)
 
-        # score and timer HUD
+        # score, life, and timer HUD
         elapsed = (pygame.time.get_ticks() - start_time) // 1000 if start_time else 0
         multiplier = max(1, 10 - elapsed // 60)
         hud = font.render(f"Score: {score} Time: {elapsed} x{multiplier}", True, (255, 255, 255))
+        lives_indicator = font.render(f"Lives: {lives}", True, (255, 255, 255))
         screen.blit(hud, (SCREEN_WIDTH - 400, 10))
+        screen.blit(lives_indicator, (SCREEN_WIDTH - 150, 10))
 
         #draw bricks
         for brick in bricks:

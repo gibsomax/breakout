@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Any area with a question mark needs to have the docstrings updated with information I do not currently have.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Fixed issue with paddles no longer synching when restarting or a life is lost.">
       <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774467078830</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Fixed issue with paddles no longer synching when restarting or a life is lost.">
+      <option name="closed" value="true" />
+      <created>1775503566908</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1775503566908</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -220,6 +226,7 @@
     <MESSAGE value="Completed as much of the brick file docstrings as possible. Please fill in missing information when possible." />
     <MESSAGE value="Completed as much of the paddle file docstrings as possible. Please fill in missing information when possible." />
     <MESSAGE value="Any area with a question mark needs to have the docstrings updated with information I do not currently have." />
-    <option name="LAST_COMMIT_MESSAGE" value="Any area with a question mark needs to have the docstrings updated with information I do not currently have." />
+    <MESSAGE value="Fixed issue with paddles no longer synching when restarting or a life is lost." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with paddles no longer synching when restarting or a life is lost." />
   </component>
 </project>
