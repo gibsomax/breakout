@@ -89,6 +89,11 @@ def main():
             start_time = None
             start = False
             lives = default_lives
+            inner_paddles.clear()
+            for i in inner_boxes:
+                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.0299, SCREEN_HEIGHT * 0.01,
+                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.438),
+                                             i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
         #starts the ball moving
         if keys[pygame.K_SPACE] and lives > 0:
             start = True
@@ -175,7 +180,6 @@ def main():
                 j.ball.remove(i)
             j.ball_destroy.clear()
 
-
         #ball/brick collision
         for j in inner_boxes:
             for ball_obj in j.ball:
@@ -224,6 +228,11 @@ def main():
         for i in ball_destroy:
             ball.remove(i)
             ball = [BALL()]
+            inner_paddles.clear()
+            for i in inner_boxes:
+                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.0299, SCREEN_HEIGHT * 0.01,
+                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.438),
+                                             i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
         ball_destroy.clear()
 
         for i in inner_boxes:
