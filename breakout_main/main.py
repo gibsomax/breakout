@@ -234,6 +234,9 @@ def main():
                     lives -= 1
                     start = False
                     paddle = PADDLE(SCREEN_WIDTH * 0.16,SCREEN_HEIGHT * 0.064,SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
+                    for j in inner_boxes:
+                        for k in j.ball:
+                            j.ball_destroy.append(k)
                 ball[i].update()
         for i in range(len(ball)):
             ball[i].draw(screen)
