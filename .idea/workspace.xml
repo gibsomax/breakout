@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Hopefully fixed issue with boxes and paddles not disappearing when bricks are cleared in the innerbox.">
+    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Fixed issue with inner balls being alive when the outer ball is destroyed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775534999854</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Fixed issue with inner balls being alive when the outer ball is destroyed.">
+      <option name="closed" value="true" />
+      <created>1775574435189</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1775574435189</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -245,6 +254,7 @@
     <MESSAGE value="Fixed issue with paddles no longer synching when restarting or a life is lost." />
     <MESSAGE value="Added a lives indicator to the HUD." />
     <MESSAGE value="Hopefully fixed issue with boxes and paddles not disappearing when bricks are cleared in the innerbox." />
-    <option name="LAST_COMMIT_MESSAGE" value="Hopefully fixed issue with boxes and paddles not disappearing when bricks are cleared in the innerbox." />
+    <MESSAGE value="Fixed issue with inner balls being alive when the outer ball is destroyed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with inner balls being alive when the outer ball is destroyed." />
   </component>
 </project>

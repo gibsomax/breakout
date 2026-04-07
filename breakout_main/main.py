@@ -166,6 +166,12 @@ def main():
                     ball_copy.is_inside = True
                     j.ball.append(ball_copy)
                     i.vy = abs(i.vy)
+                elif j.box_rect_left.colliderect(i.ball_rect):
+                    i.vx = -i.vx
+                elif j.box_rect_right.colliderect(i.ball_rect):
+                    i.vx = -i.vx
+                elif j.box_rect_top.colliderect(i.ball_rect):
+                    i.vy = -i.vy
 
 
         #inside ball collisions with inside box
