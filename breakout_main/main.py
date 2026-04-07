@@ -172,10 +172,25 @@ def main():
                     j.ball.append(ball_copy)
                     i.vy = abs(i.vy)
                 elif j.box_rect_left.colliderect(i.ball_rect):
+                    ball_copy = copy.copy(i)
+                    ball_copy.ball_rect = i.ball_rect.copy()
+                    ball_copy.ball_rect.y -= 5
+                    ball_copy.is_inside = True
+                    j.ball.append(ball_copy)
                     i.vx = -i.vx
                 elif j.box_rect_right.colliderect(i.ball_rect):
+                    ball_copy = copy.copy(i)
+                    ball_copy.ball_rect = i.ball_rect.copy()
+                    ball_copy.ball_rect.y -= 5
+                    ball_copy.is_inside = True
+                    j.ball.append(ball_copy)
                     i.vx = -i.vx
                 elif j.box_rect_top.colliderect(i.ball_rect):
+                    ball_copy = copy.copy(i)
+                    ball_copy.ball_rect = i.ball_rect.copy()
+                    ball_copy.ball_rect.y -= 5
+                    ball_copy.is_inside = True
+                    j.ball.append(ball_copy)
                     i.vy = -i.vy
 
 

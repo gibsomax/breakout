@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Added top and side collision to the outer boxes.">
+    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Fixed issue with inner and outer boxes not being created upon restart.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
     </list>
@@ -245,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775575628134</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Fixed issue with inner and outer boxes not being created upon restart.">
+      <option name="closed" value="true" />
+      <created>1775576270441</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1775576270441</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -264,6 +272,7 @@
     <MESSAGE value="Hopefully fixed issue with boxes and paddles not disappearing when bricks are cleared in the innerbox." />
     <MESSAGE value="Fixed issue with inner balls being alive when the outer ball is destroyed." />
     <MESSAGE value="Added top and side collision to the outer boxes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added top and side collision to the outer boxes." />
+    <MESSAGE value="Fixed issue with inner and outer boxes not being created upon restart." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed issue with inner and outer boxes not being created upon restart." />
   </component>
 </project>
