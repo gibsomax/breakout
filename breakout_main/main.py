@@ -84,6 +84,11 @@ def main():
         keys = pygame.key.get_pressed()
         # restart
         if keys[pygame.K_r]:
+            inner_boxes.clear()
+            for i in range(4):
+                for j in range(2):
+                    inner_boxes.append(
+                        INNERBOX((SCREEN_WIDTH * .018) + (i * offset_x), (SCREEN_HEIGHT * .054) + (j * offset_y)))
             ball = [BALL()]
             bricks = create_bricks()
             paddle = PADDLE(SCREEN_WIDTH * 0.16,SCREEN_HEIGHT * 0.064,SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
