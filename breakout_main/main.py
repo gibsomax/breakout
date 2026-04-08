@@ -144,9 +144,11 @@ def main():
                     i.vy = -ball_speed
                     i.vx = (i.ball_rect.x / 10 - paddle.paddle_rect.center[0] / 10)
                 elif i.ball_rect.right <= paddle.paddle_rect.left + abs(i.vy):
-                    i.vx = -ball_speed
+                    i.vy = -ball_speed
+                    i.vx = (i.ball_rect.x / 10 - paddle.paddle_rect.center[0] / 10)
                 elif i.ball_rect.left <= paddle.paddle_rect.right + abs(i.vy):
-                    i.vx = ball_speed
+                    i.vy = -ball_speed
+                    i.vx = (i.ball_rect.x / 10 - paddle.paddle_rect.center[0] / 10)
 
         #inside ball/paddle collision
         for j in inner_boxes:
