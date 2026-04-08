@@ -16,7 +16,7 @@ pygame.init()
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
 ball_size = 5
-velocity = 10
+velocity = 17
 paddle_rad = int(SCREEN_WIDTH * 0.16 * .05)
 ball_speed = 3
 default_lives = 3

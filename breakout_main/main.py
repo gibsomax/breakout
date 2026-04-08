@@ -36,7 +36,7 @@ def main():
         for j in range(2):
             inner_boxes.append(INNERBOX((SCREEN_WIDTH*.018) + (i * offset_x),(SCREEN_HEIGHT*.054) + (j * offset_y)))
     for i in inner_boxes:
-        inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.0299,SCREEN_HEIGHT * 0.01,i.box_rect_top.left +(i.box_rect_bottom.width * 0.438), i.box_rect_top.top + (i.box_rect_left.height * 0.9),1)))
+        inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.05,SCREEN_HEIGHT * 0.01,i.box_rect_top.left +(i.box_rect_bottom.width * 0.395), i.box_rect_top.top + (i.box_rect_left.height * 0.9),1)))
 
 
     #adding bricks
@@ -105,10 +105,10 @@ def main():
             paddle.paddle_rect.x -= velocity
             for i in inner_paddles:
                 if i.incr < 1:
-                    i.paddle_rect.x -= 2
-                    i.incr += .5
-                else:
                     i.paddle_rect.x -= 3
+                    i.incr += .6
+                else:
+                    i.paddle_rect.x -= 4
                     i.incr = 0
             if not start:
                 ball[0].ball_rect.x -= velocity
@@ -116,10 +116,10 @@ def main():
             paddle.paddle_rect.x += velocity
             for i in inner_paddles:
                 if i.incr < 1:
-                    i.paddle_rect.x += 2
-                    i.incr += .5
-                else:
                     i.paddle_rect.x += 3
+                    i.incr += .6
+                else:
+                    i.paddle_rect.x += 4
                     i.incr = 0
             if not start:
                 ball[0].ball_rect.x += velocity
@@ -155,6 +155,8 @@ def main():
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
                     ball_copy.ball_rect.y -= 5
+                    ball_copy.vx //= 4
+                    ball_copy.vy //= 4
                     ball_copy.is_inside = True
                     j.ball.append(ball_copy)
                     i.vy = abs(i.vy)
