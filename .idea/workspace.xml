@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Added inner ball creation with all box sides.">
+    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Adjusted side collision to be more like original breakout.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
     </list>
@@ -261,7 +261,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775577167401</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Adjusted side collision to be more like original breakout.">
+      <option name="closed" value="true" />
+      <created>1775675146118</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1775675146118</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -282,6 +290,7 @@
     <MESSAGE value="Added top and side collision to the outer boxes." />
     <MESSAGE value="Fixed issue with inner and outer boxes not being created upon restart." />
     <MESSAGE value="Added inner ball creation with all box sides." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added inner ball creation with all box sides." />
+    <MESSAGE value="Adjusted side collision to be more like original breakout." />
+    <option name="LAST_COMMIT_MESSAGE" value="Adjusted side collision to be more like original breakout." />
   </component>
 </project>

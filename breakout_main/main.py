@@ -201,6 +201,14 @@ def main():
             for i in j.ball:
                 if j.box_rect_bottom.colliderect(i.ball_rect) and i.is_inside == True:
                     j.ball_destroy.append(i)
+                if i.ball_rect.x > j.box_rect_right[0] + 4:
+                    j.ball_destroy.append(i)
+                if i.ball_rect.x < j.box_rect_left[0] - 4:
+                    j.ball_destroy.append(i)
+                if i.ball_rect.y < j.box_rect_top[1] - 9:
+                    j.ball_destroy.append(i)
+                if i.ball_rect.y > j.box_rect_bottom[1] + 4:
+                    j.ball_destroy.append(i)
                 if j.box_rect_top.colliderect(i.ball_rect) and i.is_inside == True:
                     i.vy = abs(i.vy)
                 if j.box_rect_right.colliderect(i.ball_rect) and i.is_inside == True:
@@ -208,7 +216,8 @@ def main():
                 if j.box_rect_left.colliderect(i.ball_rect) and i.is_inside == True:
                     i.vx = abs(i.vx)
             for i in j.ball_destroy:
-                j.ball.remove(i)
+                if i in j.ball:
+                    j.ball.remove(i)
             j.ball_destroy.clear()
 
         #ball/brick collision
