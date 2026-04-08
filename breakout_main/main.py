@@ -216,7 +216,8 @@ def main():
                     if brick.alive and brick.rect.colliderect(ball_obj.ball_rect):
                         brick.hit()
                         ball_obj.vy *= -1
-                        j.bricks.remove(brick)
+                        if brick in j.bricks:
+                            j.bricks.remove(brick)
                         if not brick.alive:
                             score += 100
                         if not j.bricks:
