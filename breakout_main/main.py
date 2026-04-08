@@ -277,7 +277,8 @@ def main():
                             j.ball_destroy.append(k)
                 ball[i].update()
         for i in range(len(ball)):
-            ball[i].draw(screen)
+            if lives > 0 and bricks:
+                ball[i].draw(screen)
         for i in ball_destroy:
             ball.remove(i)
             ball = [BALL()]
