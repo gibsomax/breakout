@@ -2,7 +2,6 @@
 Contains the game loop. When it is run the player is able to play the game. All variables initialized are used solely within this module. No part of this module is called
     in any other module. This module takes the player inputs, provides score and time feedback, initializes the brick, ball, and paddle, and detects collisions.
 """
-from operator import truediv
 import copy
 import pygame
 import sys
@@ -37,6 +36,7 @@ def main():
             inner_boxes.append(INNERBOX((SCREEN_WIDTH*.018) + (i * offset_x),(SCREEN_HEIGHT*.054) + (j * offset_y)))
     for i in inner_boxes:
         inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.05,SCREEN_HEIGHT * 0.01,i.box_rect_top.left +(i.box_rect_bottom.width * 0.395), i.box_rect_top.top + (i.box_rect_left.height * 0.9),1)))
+        i.paddle = inner_paddles[-1]
 
 
     #adding bricks
@@ -63,6 +63,7 @@ def main():
                     x = offset_x + col * (brick_w + padding) + i.box_rect_top.left
                     y = offset_y + row * (brick_h + padding) + i.box_rect_top.top
                     bricks.append(BRICK(x, y, brick_w, brick_h, colors[row % len(colors)]))
+                    i.bricks.append(bricks[-1])
         return bricks
 
     bricks = create_bricks()
@@ -82,6 +83,11 @@ def main():
         keys = pygame.key.get_pressed()
         # restart
         if keys[pygame.K_r]:
+            inner_boxes.clear()
+            for i in range(4):
+                for j in range(2):
+                    inner_boxes.append(
+                        INNERBOX((SCREEN_WIDTH * .018) + (i * offset_x), (SCREEN_HEIGHT * .054) + (j * offset_y)))
             ball = [BALL()]
             bricks = create_bricks()
             paddle = PADDLE(SCREEN_WIDTH * 0.16,SCREEN_HEIGHT * 0.064,SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
@@ -89,6 +95,12 @@ def main():
             start_time = None
             start = False
             lives = default_lives
+            inner_paddles.clear()
+            for i in inner_boxes:
+                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.0299, SCREEN_HEIGHT * 0.01,
+                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.438),
+                                             i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
+                i.paddle = inner_paddles[-1]
         #starts the ball moving
         if keys[pygame.K_SPACE] and lives > 0:
             start = True
@@ -131,9 +143,11 @@ def main():
                     i.vy = -ball_speed
                     i.vx = (i.ball_rect.x / 10 - paddle.paddle_rect.center[0] / 10)
                 elif i.ball_rect.right <= paddle.paddle_rect.left + abs(i.vy):
-                    i.vx = -ball_speed
+                    i.vy = -ball_speed
+                    i.vx = (i.ball_rect.x / 10 - paddle.paddle_rect.center[0] / 10)
                 elif i.ball_rect.left <= paddle.paddle_rect.right + abs(i.vy):
-                    i.vx = ball_speed
+                    i.vy = -ball_speed
+                    i.vx = (i.ball_rect.x / 10 - paddle.paddle_rect.center[0] / 10)
 
         #inside ball/paddle collision
         for j in inner_boxes:
@@ -167,6 +181,14 @@ def main():
             for i in j.ball:
                 if j.box_rect_bottom.colliderect(i.ball_rect) and i.is_inside == True:
                     j.ball_destroy.append(i)
+                if i.ball_rect.x > j.box_rect_right[0] + 4:
+                    j.ball_destroy.append(i)
+                if i.ball_rect.x < j.box_rect_left[0] - 4:
+                    j.ball_destroy.append(i)
+                if i.ball_rect.y < j.box_rect_top[1] - 9:
+                    j.ball_destroy.append(i)
+                if i.ball_rect.y > j.box_rect_bottom[1] + 4:
+                    j.ball_destroy.append(i)
                 if j.box_rect_top.colliderect(i.ball_rect) and i.is_inside == True:
                     i.vy = abs(i.vy)
                 if j.box_rect_right.colliderect(i.ball_rect) and i.is_inside == True:
@@ -174,9 +196,9 @@ def main():
                 if j.box_rect_left.colliderect(i.ball_rect) and i.is_inside == True:
                     i.vx = abs(i.vx)
             for i in j.ball_destroy:
-                j.ball.remove(i)
+                if i in j.ball:
+                    j.ball.remove(i)
             j.ball_destroy.clear()
-
 
         #ball/brick collision
         for j in inner_boxes:
@@ -185,8 +207,12 @@ def main():
                     if brick.alive and brick.rect.colliderect(ball_obj.ball_rect):
                         brick.hit()
                         ball_obj.vy *= -1
+                        if brick in j.bricks:
+                            j.bricks.remove(brick)
                         if not brick.alive:
                             score += 100
+                        if not j.bricks:
+                            inner_boxes.remove(j)
                         break
             bricks = [b for b in bricks if b.alive]
         #ball/brick collision
@@ -216,17 +242,23 @@ def main():
         #draw paddles
         paddle.draw(screen)
         for i in inner_paddles:
-            i.draw(screen)
+            for j in inner_boxes:
+                if j.paddle == i:
+                    i.draw(screen)
 
-        # score and timer HUD
+        # score, life, and timer HUD
         elapsed = (pygame.time.get_ticks() - start_time) // 1000 if start_time else 0
         multiplier = max(1, 10 - elapsed // 60)
         hud = font.render(f"Score: {score} Time: {elapsed} x{multiplier}", True, (255, 255, 255))
+        lives_indicator = font.render(f"Lives: {lives}", True, (255, 255, 255))
         screen.blit(hud, (SCREEN_WIDTH - 400, 10))
+        screen.blit(lives_indicator, (SCREEN_WIDTH - 150, 10))
 
         #draw bricks
         for brick in bricks:
-            brick.draw(screen)
+            for j in inner_boxes:
+                if brick in j.bricks:
+                    brick.draw(screen)
 
         #destroys balls when they hit the bottom of the screen
         if start:
@@ -236,12 +268,22 @@ def main():
                     lives -= 1
                     start = False
                     paddle = PADDLE(SCREEN_WIDTH * 0.16,SCREEN_HEIGHT * 0.064,SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
+                    for j in inner_boxes:
+                        for k in j.ball:
+                            j.ball_destroy.append(k)
                 ball[i].update()
         for i in range(len(ball)):
-            ball[i].draw(screen)
+            if lives > 0 and bricks:
+                ball[i].draw(screen)
         for i in ball_destroy:
             ball.remove(i)
             ball = [BALL()]
+            inner_paddles.clear()
+            for i in inner_boxes:
+                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.0299, SCREEN_HEIGHT * 0.01,
+                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.438),
+                                             i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
+                i.paddle = inner_paddles[-1]
         ball_destroy.clear()
 
         for i in inner_boxes:

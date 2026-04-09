@@ -14,7 +14,8 @@ class INNERBOX:
         self.box_size_y = SCREEN_HEIGHT * 0.18
         self.ball = []
         self.ball_destroy = []
-
+        self.bricks = []
+        self.paddle = None
 
 
         self.box_rect_top = pygame.Rect(
