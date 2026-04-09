@@ -155,12 +155,12 @@ def main():
                 for k in inner_paddles:
                     if k.paddle_rect.colliderect(i.ball_rect):
                         if i.ball_rect.bottom <= paddle.paddle_rect.top + abs(i.vy):
-                            i.vy = -ball_speed
+                            i.vy = -i.vy
                             i.vx = (i.ball_rect.x / 10 - k.paddle_rect.center[0] / 10)
                         elif i.ball_rect.right <= k.paddle_rect.left + abs(i.vy):
-                            i.vx = -ball_speed
+                            i.vx = -i.vy
                         elif i.ball_rect.left <= k.paddle_rect.right + abs(i.vy):
-                            i.vx = ball_speed
+                            i.vx = i.vy
 
         #outside ball collisions with inside box
         for i in ball:
