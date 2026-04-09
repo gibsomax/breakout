@@ -177,6 +177,36 @@ def main():
                     j.ball.append(ball_copy)
                     i.vy = abs(i.vy)
                     i.is_inside_time = 20
+                if j.box_rect_right.colliderect(i.ball_rect) and i.is_inside == False:
+                    ball_copy = copy.copy(i)
+                    ball_copy.ball_rect = i.ball_rect.copy()
+                    ball_copy.ball_rect.x -= 5
+                    ball_copy.vx //= 4
+                    ball_copy.vy //= 4
+                    ball_copy.is_inside = True
+                    j.ball.append(ball_copy)
+                    i.vx = abs(i.vx)
+                    i.is_inside_time = 20
+                if j.box_rect_left.colliderect(i.ball_rect) and i.is_inside == False:
+                    ball_copy = copy.copy(i)
+                    ball_copy.ball_rect = i.ball_rect.copy()
+                    ball_copy.ball_rect.y += 5
+                    ball_copy.vx //= 4
+                    ball_copy.vy //= 4
+                    ball_copy.is_inside = True
+                    j.ball.append(ball_copy)
+                    i.vx = -i.vx
+                    i.is_inside_time = 20
+                if j.box_rect_top.colliderect(i.ball_rect) and i.is_inside == False:
+                    ball_copy = copy.copy(i)
+                    ball_copy.ball_rect = i.ball_rect.copy()
+                    ball_copy.ball_rect.y += 5
+                    ball_copy.vx //= 4
+                    ball_copy.vy //= 4
+                    ball_copy.is_inside = True
+                    j.ball.append(ball_copy)
+                    i.vy = -i.vy
+                    i.is_inside_time = 20
 
 
         #inside ball collisions with inside box
