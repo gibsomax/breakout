@@ -212,25 +212,11 @@ def main():
                         if not brick.alive:
                             score += 100
                         if not j.bricks:
+                            for i in j.ball:
+                                ball.append(i)
                             inner_boxes.remove(j)
                         break
             bricks = [b for b in bricks if b.alive]
-        #ball/brick collision
-        for ball_obj in ball:
-            for brick in bricks:
-                if brick.alive and brick.rect.colliderect(ball_obj.ball_rect):
-                    #ball right side, brick left side
-                    if ball_obj.ball_rect.topright[0] - brick.rect.topleft[0] < 5:
-                        ball_obj.vx *= -1
-                    #ball left side, brick right side
-                    elif 10 > ball_obj.ball_rect.topleft[0] - brick.rect.topright[0] > -5:
-                        ball_obj.vx *= -1
-                    brick.hit()
-                    ball_obj.vy *= -1
-                    if not brick.alive:
-                        score += 100
-                    break
-        bricks = [b for b in bricks if b.alive]
 
         #clear screen
         screen.fill((0, 0, 0))
@@ -317,6 +303,7 @@ def main():
     # ---after loop quit---
     pygame.quit()
     sys.exit()
+
 
 if __name__ == "__main__":
     main()
