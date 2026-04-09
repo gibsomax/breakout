@@ -266,8 +266,8 @@ def main():
             ball = [BALL()]
             inner_paddles.clear()
             for i in inner_boxes:
-                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.0299, SCREEN_HEIGHT * 0.01,
-                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.438),
+                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.01,
+                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.395),
                                              i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
                 i.paddle = inner_paddles[-1]
         ball_destroy.clear()
