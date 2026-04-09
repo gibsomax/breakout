@@ -35,6 +35,7 @@ class BALL:
         self.vy = -ball_speed
         self.destroy = False
         self.is_inside = False
+        self.is_inside_time = 0
 
     def update(self):
         """

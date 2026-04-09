@@ -152,8 +152,10 @@ def main():
         #inside ball/paddle collision
         for j in inner_boxes:
             for i in j.ball:
+                if i.is_inside_time > 0:
+                    i.is_inside_time -= 1
                 for k in inner_paddles:
-                    if k.paddle_rect.colliderect(i.ball_rect):
+                    if k.paddle_rect.colliderect(i.ball_rect) and i.is_inside_time <= 0:
                         if i.ball_rect.bottom <= paddle.paddle_rect.top + abs(i.vy):
                             i.vy = -i.vy
                             i.vx = (i.ball_rect.x / 10 - k.paddle_rect.center[0] / 10)
@@ -174,6 +176,7 @@ def main():
                     ball_copy.is_inside = True
                     j.ball.append(ball_copy)
                     i.vy = abs(i.vy)
+                    i.is_inside_time = 20
 
 
         #inside ball collisions with inside box
@@ -213,6 +216,7 @@ def main():
                             score += 100
                         if not j.bricks:
                             for i in j.ball:
+                                i.is_inside = False
                                 ball.append(i)
                             inner_boxes.remove(j)
                         break
