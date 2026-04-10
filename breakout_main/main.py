@@ -170,6 +170,8 @@ def main():
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
                     ball_copy.ball_rect.y -= 5
+                    ball_copy.vx //=2
+                    ball_copy.vy //=2
                     ball_copy.is_inside = True
                     j.ball.append(ball_copy)
                     i.vy = abs(i.vy)
@@ -177,6 +179,8 @@ def main():
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
                     ball_copy.ball_rect.y -= 5
+                    ball_copy.vx //= 2
+                    ball_copy.vy //= 2
                     ball_copy.is_inside = True
                     j.ball.append(ball_copy)
                     i.vx = -i.vx
@@ -184,6 +188,8 @@ def main():
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
                     ball_copy.ball_rect.y -= 5
+                    ball_copy.vx //= 2
+                    ball_copy.vy //= 2
                     ball_copy.is_inside = True
                     j.ball.append(ball_copy)
                     i.vx = -i.vx
@@ -191,6 +197,8 @@ def main():
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
                     ball_copy.ball_rect.y -= 5
+                    ball_copy.vx //= 2
+                    ball_copy.vy //= 2
                     ball_copy.is_inside = True
                     j.ball.append(ball_copy)
                     i.vy = -i.vy
@@ -232,6 +240,8 @@ def main():
                         if not brick.alive:
                             score += 100
                         if not j.bricks:
+                            for ball_obj in j.ball:
+                                ball.append(ball_obj)
                             inner_boxes.remove(j)
                         break
             bricks = [b for b in bricks if b.alive]
