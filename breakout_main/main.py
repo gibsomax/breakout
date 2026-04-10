@@ -97,8 +97,8 @@ def main():
             lives = default_lives
             inner_paddles.clear()
             for i in inner_boxes:
-                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.0299, SCREEN_HEIGHT * 0.01,
-                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.438),
+                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.01,
+                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.395),
                                              i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
                 i.paddle = inner_paddles[-1]
         #starts the ball moving
@@ -111,6 +111,10 @@ def main():
         # exit
         if keys[pygame.K_q]:
             pygame.quit()
+
+        #dev cheat
+        if keys[pygame.K_p]:
+            ball[0].ball_rect.x = 630
 
         # paddle movement, and ball if it has not started moving yet
         if keys[pygame.K_LEFT] and paddle.paddle_rect.left >= 0+paddle_rad:
@@ -167,52 +171,64 @@ def main():
         #outside ball collisions with inside box
         for i in ball:
             for j in inner_boxes:
-                if j.box_rect_bottom.colliderect(i.ball_rect) and i.is_inside == False:
+                if j.box_rect_bottom.colliderect(i.ball_rect):
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
                     ball_copy.ball_rect.y -= 5
-                    ball_copy.vx //=2
-                    ball_copy.vy //=2
-                    ball_copy.is_inside = True
+                    ball_copy.vx /= 4
+                    ball_copy.vy /= 4
+                    if abs(ball_copy.vx) < 1:
+                        ball_copy.vx = 1 if ball_copy.vx >= 0 else -1
+                    if abs(ball_copy.vy) < 1:
+                        ball_copy.vy = 1 if ball_copy.vy >= 0 else -1
                     j.ball.append(ball_copy)
                     i.vy = abs(i.vy)
                     i.is_inside_time = 20
-                if j.box_rect_right.colliderect(i.ball_rect) and i.is_inside == False:
+                elif j.box_rect_right.colliderect(i.ball_rect):
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
-                    ball_copy.ball_rect.y -= 5
-                    ball_copy.vx //= 2
-                    ball_copy.vy //= 2
-                    ball_copy.is_inside = True
+                    ball_copy.ball_rect.x -= 5
+                    ball_copy.vx /= 4
+                    ball_copy.vy /= 4
+                    if abs(ball_copy.vx) < 1:
+                        ball_copy.vx = 1 if ball_copy.vx >= 0 else -1
+                    if abs(ball_copy.vy) < 1:
+                        ball_copy.vy = 1 if ball_copy.vy >= 0 else -1
                     j.ball.append(ball_copy)
                     i.vx = abs(i.vx)
                     i.is_inside_time = 20
-                if j.box_rect_left.colliderect(i.ball_rect) and i.is_inside == False:
+                elif j.box_rect_left.colliderect(i.ball_rect):
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
-                    ball_copy.ball_rect.y -= 5
-                    ball_copy.vx //= 2
-                    ball_copy.vy //= 2
-                    ball_copy.is_inside = True
+                    ball_copy.ball_rect.x += 5
+                    ball_copy.vx /= 4
+                    ball_copy.vy /= 4
+                    if abs(ball_copy.vx) < 1:
+                        ball_copy.vx = 1 if ball_copy.vx >= 0 else -1
+                    if abs(ball_copy.vy) < 1:
+                        ball_copy.vy = 1 if ball_copy.vy >= 0 else -1
                     j.ball.append(ball_copy)
-                    i.vx = -i.vx
+                    i.vx = -abs(i.vx)
                     i.is_inside_time = 20
-                if j.box_rect_top.colliderect(i.ball_rect) and i.is_inside == False:
+                elif j.box_rect_top.colliderect(i.ball_rect):
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
-                    ball_copy.ball_rect.y -= 5
-                    ball_copy.vx //= 2
-                    ball_copy.vy //= 2
-                    ball_copy.is_inside = True
+                    ball_copy.ball_rect.y += 5
+                    ball_copy.vx /= 4
+                    ball_copy.vy /= 4
+                    if abs(ball_copy.vx) < 1:
+                        ball_copy.vx = 1 if ball_copy.vx >= 0 else -1
+                    if abs(ball_copy.vy) < 1:
+                        ball_copy.vy = 1 if ball_copy.vy >= 0 else -1
                     j.ball.append(ball_copy)
-                    i.vy = -i.vy
+                    i.vy = -abs(i.vy)
                     i.is_inside_time = 20
 
 
         #inside ball collisions with inside box
         for j in inner_boxes:
             for i in j.ball:
-                if j.box_rect_bottom.colliderect(i.ball_rect) and i.is_inside == True:
+                if j.box_rect_bottom.colliderect(i.ball_rect):
                     j.ball_destroy.append(i)
                 if i.ball_rect.x > j.box_rect_right[0] + 4:
                     j.ball_destroy.append(i)
@@ -222,11 +238,11 @@ def main():
                     j.ball_destroy.append(i)
                 if i.ball_rect.y > j.box_rect_bottom[1] + 4:
                     j.ball_destroy.append(i)
-                if j.box_rect_top.colliderect(i.ball_rect) and i.is_inside == True:
+                if j.box_rect_top.colliderect(i.ball_rect):
                     i.vy = abs(i.vy)
-                if j.box_rect_right.colliderect(i.ball_rect) and i.is_inside == True:
+                if j.box_rect_right.colliderect(i.ball_rect):
                     i.vx = -abs(i.vx)
-                if j.box_rect_left.colliderect(i.ball_rect) and i.is_inside == True:
+                if j.box_rect_left.colliderect(i.ball_rect):
                     i.vx = abs(i.vx)
             for i in j.ball_destroy:
                 if i in j.ball:
@@ -246,7 +262,6 @@ def main():
                             score += 100
                         if not j.bricks:
                             for i in j.ball:
-                                i.is_inside = False
                                 ball.append(i)
                             inner_boxes.remove(j)
                         break
@@ -285,26 +300,29 @@ def main():
             for i in range(len(ball)):
                 if ball[i].destroy:
                     ball_destroy.append(ball[i])
-                    lives -= 1
-                    start = False
-                    paddle = PADDLE(SCREEN_WIDTH * 0.16,SCREEN_HEIGHT * 0.064,SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
-                    for j in inner_boxes:
-                        for k in j.ball:
-                            j.ball_destroy.append(k)
                 ball[i].update()
         for i in range(len(ball)):
             if lives > 0 and bricks:
                 ball[i].draw(screen)
         for i in ball_destroy:
             ball.remove(i)
-            ball = [BALL()]
             inner_paddles.clear()
             for i in inner_boxes:
                 inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.01,
-                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.395),
-                                             i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
+                                                i.box_rect_top.left + (i.box_rect_bottom.width * 0.395),
+                                                i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
                 i.paddle = inner_paddles[-1]
         ball_destroy.clear()
+
+        if len(ball) < 1:
+            lives -= 1
+            start = False
+            paddle = PADDLE(SCREEN_WIDTH * 0.16, SCREEN_HEIGHT * 0.064, SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
+            for j in inner_boxes:
+                for k in j.ball:
+                    j.ball_destroy.append(k)
+            ball = [BALL()]
+
 
         for i in inner_boxes:
             for j in i.ball:
@@ -337,7 +355,6 @@ def main():
     # ---after loop quit---
     pygame.quit()
     sys.exit()
-
 
 if __name__ == "__main__":
     main()
