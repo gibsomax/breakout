@@ -342,7 +342,7 @@ def main():
         if not bricks:
             start = False
             lives = 0
-            text = font.render(f'You won with {score} points! Press R to play again!', True, (0, 255, 0), (0, 0, 0))
+            text = font.render(f'You won with {score * multiplier} points! Press R to play again!', True, (0, 255, 0), (0, 0, 0))
             textRect = text.get_rect()
             textRect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
             screen.blit(text, textRect)
