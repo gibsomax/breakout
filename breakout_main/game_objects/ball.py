@@ -34,8 +34,7 @@ class BALL:
         self.vx = random.choice([-ball_speed,ball_speed])
         self.vy = -ball_speed
         self.destroy = False
-        self.is_inside = False
-        self.is_inside_time = 0
+        self.is_inside_time = 20
 
     def update(self):
         """
