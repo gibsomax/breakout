@@ -306,18 +306,18 @@ def main():
                 ball[i].draw(screen)
         for i in ball_destroy:
             ball.remove(i)
-            inner_paddles.clear()
-            for i in inner_boxes:
-                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.01,
-                                                i.box_rect_top.left + (i.box_rect_bottom.width * 0.395),
-                                                i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
-                i.paddle = inner_paddles[-1]
         ball_destroy.clear()
 
         if len(ball) < 1:
             lives -= 1
             start = False
             paddle = PADDLE(SCREEN_WIDTH * 0.16, SCREEN_HEIGHT * 0.064, SCREEN_WIDTH * 0.419, SCREEN_HEIGHT * 0.9)
+            inner_paddles.clear()
+            for i in inner_boxes:
+                inner_paddles.append((PADDLE(SCREEN_WIDTH * 0.05, SCREEN_HEIGHT * 0.01,
+                                             i.box_rect_top.left + (i.box_rect_bottom.width * 0.395),
+                                             i.box_rect_top.top + (i.box_rect_left.height * 0.9), 1)))
+                i.paddle = inner_paddles[-1]
             for j in inner_boxes:
                 for k in j.ball:
                     j.ball_destroy.append(k)
