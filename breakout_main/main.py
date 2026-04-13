@@ -228,7 +228,7 @@ def main():
         #inside ball collisions with inside box
         for j in inner_boxes:
             for i in j.ball:
-                if j.box_rect_bottom.colliderect(i.ball_rect):
+                if j.box_rect_bottom.colliderect(i.ball_rect) and i.is_inside_time <= 0:
                     j.ball_destroy.append(i)
                 if i.ball_rect.x > j.box_rect_right[0] + 4:
                     j.ball_destroy.append(i)
