@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Fixed inner paddles resetting when any outer ball is destroyed.">
+    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Fixed former inner balls not creating inner balls when bottom collision.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
     </list>
@@ -208,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775958034988</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Fixed former inner balls not creating inner balls when bottom collision.">
+      <option name="closed" value="true" />
+      <created>1776046511987</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1776046511987</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -223,6 +231,7 @@
     <MESSAGE value="Completed as much of the paddle file docstrings as possible. Please fill in missing information when possible." />
     <MESSAGE value="Any area with a question mark needs to have the docstrings updated with information I do not currently have." />
     <MESSAGE value="Fixed inner paddles resetting when any outer ball is destroyed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed inner paddles resetting when any outer ball is destroyed." />
+    <MESSAGE value="Fixed former inner balls not creating inner balls when bottom collision." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed former inner balls not creating inner balls when bottom collision." />
   </component>
 </project>

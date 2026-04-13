@@ -174,7 +174,7 @@ def main():
                 if j.box_rect_bottom.colliderect(i.ball_rect):
                     ball_copy = copy.copy(i)
                     ball_copy.ball_rect = i.ball_rect.copy()
-                    ball_copy.ball_rect.y -= 5
+                    ball_copy.ball_rect.y -= 6
                     ball_copy.vx /= 4
                     ball_copy.vy /= 4
                     if abs(ball_copy.vx) < 1:
