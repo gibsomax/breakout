@@ -1,10 +1,21 @@
-#this will house the inner box
-#this needs to run an inside game of breakout
-#this needs to bring balls in from the outside
 import pygame
 from breakout_main.settings import SCREEN_WIDTH,SCREEN_HEIGHT
 
 class INNERBOX:
+    """
+        Represents the characteristics and current state of the paddle object.
+
+         Attributes:
+            box_size_x (int): How wide the box is.
+            box_size_y (int): How tall the box is below its starting vertical position.
+            ball (list): List of the balls currently in the box.
+            ball_destroy (list): List of balls in the inner box set to be destroyed.
+            bricks (list): List of the bricks in the inner box.
+            paddle (paddle): Paddle belonging to the inner box.
+
+         Methods:
+             draw(): Creates the image of the inner box object at the corresponding position.
+    """
     def __init__(self,x,y):
 
         """
@@ -16,7 +27,6 @@ class INNERBOX:
         self.ball_destroy = []
         self.bricks = []
         self.paddle = None
-
 
         self.box_rect_top = pygame.Rect(
             x,

@@ -1,5 +1,4 @@
 import pygame
-
 class BRICK:
     """
     Represents the characteristics and current state of the brick objects.

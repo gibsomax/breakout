@@ -17,6 +17,7 @@ class BALL:
         vx (float): The horizontal direction the ball is going to travel.
         vy (int): The vertical direction the ball is going to travel.
         destroy (bool): Whether the ball should be destroyed or not.
+        is_inside_time (int): Tracks if the ball was newly added to the inner box.
 
     Methods:
         update(): Changes the ball object's movement direction or destroy state.

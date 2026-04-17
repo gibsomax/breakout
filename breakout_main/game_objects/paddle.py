@@ -1,4 +1,3 @@
-#it needs to have collision on the top and sides but allow a ball to pass through on the bottom.
 import pygame
 from breakout_main.settings import paddle_rad,SCREEN_WIDTH,SCREEN_HEIGHT
 
@@ -9,6 +8,8 @@ class PADDLE:
      Attributes:
         paddle_size_x (int): How wide the paddle is.
         paddle_size_y (int): How tall the paddle is below its starting vertical position.
+        x (int): Horizontal position of the paddle.
+        y (int): Vertical position of the paddle.
         paddle_rect (rect): How wide and tall the paddle is and its starting position.
         rad (int): How large the radius of the paddle corners are.
 
