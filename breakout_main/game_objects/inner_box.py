@@ -4,7 +4,7 @@ from breakout_main.settings import SCREEN_WIDTH, SCREEN_HEIGHT
 
 class INNERBOX:
     """
-    Represents the characteristics and current state of the paddle object.
+    Represents the characteristics and current state of the innerbox object.
 
     Attributes:
         box_size_x (int): How wide the box is.
