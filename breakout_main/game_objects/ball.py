@@ -1,8 +1,7 @@
-#it needs to push another ball into an outer brick upon collision
-#also needs to bounce off outer brick upon collision
-from breakout_main.settings import ball_size,SCREEN_HEIGHT,SCREEN_WIDTH,ball_speed
+from breakout_main.settings import ball_size, SCREEN_HEIGHT, SCREEN_WIDTH, ball_speed
 import pygame
 import random
+
 
 class BALL:
     """
@@ -28,11 +27,11 @@ class BALL:
         Initializes the ball object.
         """
         self.ball_size = ball_size
-        self.ball_surface = pygame.Surface((ball_size,ball_size))
+        self.ball_surface = pygame.Surface((ball_size, ball_size))
         self.ball_surface.fill((255, 255, 255))
         self.ball_rect = self.ball_surface.get_rect()
-        self.ball_rect.center = (SCREEN_WIDTH * .5,SCREEN_HEIGHT *.885)
-        self.vx = random.choice([-ball_speed,ball_speed])
+        self.ball_rect.center = (SCREEN_WIDTH * .5, SCREEN_HEIGHT * .885)
+        self.vx = random.choice([-ball_speed, ball_speed])
         self.vy = -ball_speed
         self.destroy = False
         self.is_inside_time = 20
@@ -51,7 +50,6 @@ class BALL:
             self.vy = abs(self.vy)
         if self.ball_rect.bottom >= SCREEN_HEIGHT:
             self.destroy = True
-
 
     def draw(self, surface):
         """

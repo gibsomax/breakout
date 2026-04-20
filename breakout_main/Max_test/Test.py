@@ -3,17 +3,11 @@ Basic unit tests for BALL, BRICK, and PADDLE game objects.
 """
 import unittest
 import os
+import pygame
 os.environ["SDL_VIDEODRIVER"] = "dummy"
 os.environ["SDL_AUDIODRIVER"] = "dummy"
-
-import pygame
 pygame.init()
 pygame.display.set_mode((1000, 800))
-
-from breakout_main.game_objects.brick import BRICK
-from breakout_main.game_objects.ball import BALL
-from breakout_main.game_objects.paddle import PADDLE
-from breakout_main.settings import SCREEN_WIDTH, SCREEN_HEIGHT, ball_speed
 
 
 class TestBrick(unittest.TestCase):

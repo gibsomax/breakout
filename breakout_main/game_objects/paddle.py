@@ -1,5 +1,6 @@
 import pygame
-from breakout_main.settings import paddle_rad,SCREEN_WIDTH,SCREEN_HEIGHT
+from breakout_main.settings import paddle_rad, SCREEN_WIDTH, SCREEN_HEIGHT
+
 
 class PADDLE:
     """
@@ -16,7 +17,7 @@ class PADDLE:
      Methods:
          draw(): Creates the image of the paddle object at the corresponding position.
      """
-    def __init__(self,paddle_size_x,paddle_size_y,x,y,rad=paddle_rad):
+    def __init__(self, paddle_size_x, paddle_size_y, x, y, rad=paddle_rad):
         """
         Initializes the paddle object.
         """

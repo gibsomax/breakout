@@ -5,18 +5,16 @@ Simulates the collision logic from main.py directly on the objects.
 import unittest
 import copy
 import os
-os.environ["SDL_VIDEODRIVER"] = "dummy"
-os.environ["SDL_AUDIODRIVER"] = "dummy"
-
 import pygame
-pygame.init()
-pygame.display.set_mode((1000, 800))
-
 from breakout_main.game_objects.ball import BALL
 from breakout_main.game_objects.brick import BRICK
 from breakout_main.game_objects.paddle import PADDLE
 from breakout_main.game_objects.inner_box import INNERBOX
 from breakout_main.settings import SCREEN_WIDTH, SCREEN_HEIGHT, ball_speed
+os.environ["SDL_VIDEODRIVER"] = "dummy"
+os.environ["SDL_AUDIODRIVER"] = "dummy"
+pygame.init()
+pygame.display.set_mode((1000, 800))
 
 
 class TestBallBrickCollision(unittest.TestCase):

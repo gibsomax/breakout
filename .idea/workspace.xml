@@ -4,17 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Fixed former inner balls not creating inner balls when bottom collision.">
-      <change afterPath="$PROJECT_DIR$/breakout_main/Max_test/Test Collision.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/breakout_main/Max_test/Test.py" afterDir="false" />
+    <list default="true" id="65e4ea89-ecca-4c6d-adca-a4490fd29280" name="Changes" comment="Updated docstrings to reflect new changes.">
+      <change beforePath="$PROJECT_DIR$/.idea/breakout-fresh.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/breakout-fresh.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_06_9_12_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_04_06_9_12_AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_8_2026_10_41_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_8_2026_10_41_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_8_2026_9_00_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_8_2026_9_00_AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/Max_test/Test Collision.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/Max_test/Test Collision.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/Max_test/Test.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/Max_test/Test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/ball.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/brick.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/brick.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/inner_box.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/inner_box.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/game_objects/paddle.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/game_objects/paddle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/breakout_main/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/breakout_main/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,11 +54,13 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python tests.Python tests for Test.TestBrick.test_brick_initializes_alive.executor": "Debug",
+    "Python tests.Python tests for Test.TestPaddle.test_paddle_rect_position.executor": "Debug",
     "Python tests.Python tests in Test.py.executor": "Run",
     "Python.Design_template.executor": "Run",
     "Python.ball.executor": "Run",
     "Python.inner_box.executor": "Run",
-    "Python.main.executor": "Run",
+    "Python.main.executor": "Debug",
     "Python.settings.executor": "Run",
     "Python.toggle_box.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -69,7 +72,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -78,7 +81,7 @@
       <recent name="C:\Users\tagib\PycharmProjects\breakout\breakout_main" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.Python tests in Test Collision.py">
+  <component name="RunManager" selected="Python.main">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="breakout-fresh" />
       <option name="ENV_FILES" value="" />
@@ -100,6 +103,36 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for Test.TestBrick.test_brick_initializes_alive" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="breakout-fresh" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/breakout_main/Max_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;Test.TestBrick.test_brick_initializes_alive&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for Test.TestPaddle.test_paddle_rect_position" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="breakout-fresh" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/breakout_main/Max_test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;Test.TestPaddle.test_paddle_rect_position&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Python tests in Test Collision.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
@@ -134,19 +167,27 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.main" />
+      <item itemvalue="Python tests.Python tests for Test.TestBrick.test_brick_initializes_alive" />
+      <item itemvalue="Python tests.Python tests for Test.TestPaddle.test_paddle_rect_position" />
+      <item itemvalue="Python tests.Python tests in Test.py" />
+      <item itemvalue="Python tests.Python tests in Test Collision.py" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main" />
+        <item itemvalue="Python tests.Python tests for Test.TestPaddle.test_paddle_rect_position" />
+        <item itemvalue="Python tests.Python tests for Test.TestBrick.test_brick_initializes_alive" />
         <item itemvalue="Python tests.Python tests in Test Collision.py" />
         <item itemvalue="Python tests.Python tests in Test.py" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
-        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+        <option value="bundled-python-sdk-af26db0dccfe-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.26775.22" />
       </set>
     </attachedChunks>
   </component>
@@ -305,6 +346,17 @@
     <MESSAGE value="Fixed inner paddles resetting when any outer ball is destroyed." />
     <MESSAGE value="Fixed former inner balls not creating inner balls when bottom collision." />
     <option name="LAST_COMMIT_MESSAGE" value="Fixed former inner balls not creating inner balls when bottom collision." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/breakout_fresh$.coverage" NAME=" Coverage Results" MODIFIED="1776398013932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/breakout_main/Max_test" />
